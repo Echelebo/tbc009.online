@@ -379,6 +379,9 @@ $("#sendingamount").on("input", function() {
     $("#kringleamount").text(inputValue + " Kringle"); // Change the innerHTML of the element with id "demo"
 });
 
+$("#paymentmode").change(function () {
+    $("#sendingamount").val('');
+});
 </script>
 
 

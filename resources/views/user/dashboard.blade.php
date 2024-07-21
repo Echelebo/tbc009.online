@@ -357,7 +357,7 @@
                 </div>
 
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer center">
                 <button type="button" style="width: 40%;" class="btn btn-default text-white bg-green-500" data-dismiss="modal">Close</button>
                 <button type="submit" style="width: 40%;" class="btn btn-primary bg-green-500">Save</button>
               </div>

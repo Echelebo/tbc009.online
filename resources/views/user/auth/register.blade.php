@@ -173,9 +173,8 @@
                                 <button type="submit" id="registerBtn"
                                     class="btn btn-lg btn-round btn-primary btn-block mb-0 bg-green-500">Register</button>
 
-                                <div class="mt-4 px-2 font-semibold lg:px-10">
-                                    <a href="{{ route('user.login') }}" class="hover:text-blue-700">Already have account?
-                                        Login</a>
+                                <div class="mt-8 px-2 font-semibold lg:px-10 text-center">
+                                    <a href="{{ route('user.login') }}" class="hover:text-blue-700">Login with existing account <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
                             </form>
 
@@ -223,7 +222,7 @@
                                     class="btn btn-lg btn-round btn-primary btn-block mb-0 bg-green-500"><i
                                         class="fas fa-edit" aria-hidden="true"></i>Verify</button>
 
-                                <div class="mt-4 px-2 font-semibold lg:px-10">
+                                <div class="mt-4 px-2 font-semibold lg:px-10 text-center">
                                     <a href="{{ route('user.register') }}" class="hover:text-blue-700">Go Back</a>
                                 </div>
                             </form>

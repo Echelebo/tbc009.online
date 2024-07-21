@@ -113,7 +113,7 @@
                                     class="btn btn-lg btn-round btn-primary btn-block mb-0 bg-green-500"><i
                                         class="fas fa-sign-in-alt" aria-hidden="true"></i>Verify</button>
 
-                                <div class="mt-4 px-2 font-semibold lg:px-10">
+                                <div class="mt-4 px-2 font-semibold lg:px-10 text-center">
                                     <button type="button" class="hover:text-blue-700" id="resendBtn">Resend OTP</button>
                                 </div>
 

@@ -377,7 +377,7 @@
 <script type="text/javascript">
     function myChangeFunction(input1) {
         var input2 = document.getElementById('kringleamount');
-        input2.value = input1.value;
+        input2.value = input1.value + " Kringle";
     }
 </script>
 
@@ -392,16 +392,7 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 </script>
-<script>
-    function myFunction() {
-    var x = document.getElementById("sendingamount");
-    x.value = x.value;
 
-    var y = document.getElementById("kringleamount");
-    y.value = x.value;
-
-    }
-    </script>
 <script>
     $("#chooserate").change(function () {
             var selectedValue = $("#chooserate").val();

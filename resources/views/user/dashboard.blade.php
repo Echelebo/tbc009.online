@@ -346,7 +346,7 @@
                     <div class="input-group-inner center" style="width: 80%; margin:auto;">
 
                         <input type="text" name="sendingamount" id="sendingamount" value=""
-                            class="form-control form-control-lg" placeholder="Amount">
+                            class="form-control form-control-lg" placeholder="Amount" onchange="myChangeFunction(this)">
                         <div class="input-focus-bg"></div>
                     </div>
                 </div>
@@ -354,7 +354,7 @@
                     <div class="input-group-inner center" style="width: 50%; margin:auto;">
 
                         <input type="text" name="kringleamount"  id="kringleamount" value=""
-                            class="form-control form-control-lg" placeholder="" readonly>
+                            class="form-control form-control-lg">
                         <div class="input-focus-bg"></div>
                     </div>
                 </div>
@@ -373,6 +373,14 @@
 @section('scripts')
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<script type="text/javascript">
+    function myChangeFunction(input1) {
+        var input2 = document.getElementById('kringleamount');
+        input2.value = input1.value;
+    }
+</script>
+
 
 
         <script>

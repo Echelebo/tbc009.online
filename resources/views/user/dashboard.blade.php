@@ -374,15 +374,29 @@
 
 <script>
 
-$("#sendingamount").on("input", function() {
-    var inputValue = $(this).val(); // Get the value of the first input
-    $("#kringleamount").text(inputValue + " Kringle"); // Change the innerHTML of the element with id "demo"
-});
-
 $("#paymentmode").change(function () {
     $("#sendingamount").val('');
     $("#kringleamount").text("");
 });
+
+$("#sendingamount").on("input", function() {
+    var inputValue = $(this).val();
+    var pMode = $("#paymentmode").val();
+    var pTbc = inputValue*100000000;
+    var pTbcx = pTbc.toLocaleString();
+    var pUsd = inputValue*246000;
+    var pUsdx = pUsd.toLocaleString();
+    var pKrin = inputValue.toLocaleString();
+    if (pMode == 50) {
+        $("#kringleamount").text(pTbcx + " Kringle");
+    } else if (pMode == 51) {
+        $("#kringleamount").text(pKrin + " Kringle");
+    } else if (pMode == 52) {
+        $("#kringleamount").text(pUsdx + " Kringle");
+    }
+
+});
+
 </script>
 
 

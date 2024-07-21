@@ -77,7 +77,7 @@
                                     <p style="font-size: 14px;"><a href="https://kringle.cash" target="_blank"><b>Read more</b></a></p>
                                 </div>
 
-                                <div class="mt-8 px-2 font-semibold lg:px-10 text-center">
+                                <div class="mt-12 px-2 font-semibold lg:px-10 text-center">
                                     <a href="{{ route('user.register') }}" class="hover:text-blue-700">Create your Account <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
                             </form>

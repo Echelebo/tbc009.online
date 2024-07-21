@@ -346,7 +346,7 @@
                     <div class="input-group-inner center" style="width: 80%; margin:auto;">
 
                         <input type="text" name="sendingamount" id="sendingamount" value=""
-                            class="form-control form-control-lg" placeholder="Amount" onchange="myChangeFunction(this)">
+                            class="form-control form-control-lg" placeholder="Amount">
                         <div class="input-focus-bg"></div>
                     </div>
                 </div>
@@ -375,10 +375,12 @@
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 <script type="text/javascript">
-    function myChangeFunction(input1) {
-        var input2 = document.getElementById('kringleamount');
-        input2.value = input1.value + " Kringle";
-    }
+
+$("#sendingamount").keyup(function(){
+  var input1 = $("#sendingamount").val();
+  $("#kringleamount").innerHTML(input1);
+});
+
 </script>
 
 

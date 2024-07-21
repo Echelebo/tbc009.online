@@ -374,11 +374,11 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-<script type="text/javascript">
+<script>
 
-$("#sendingamount").keyup(function(){
-  var input1 = $("#sendingamount").val();
-  $("#kringleamount").innerHTML = input1;
+$('#sendingamount').on('input', function() {
+    var inputValue = $(this).val(); // Get the value of the first input
+    $('#kringleamount').text(inputValue); // Change the innerHTML of the element with id "demo"
 });
 
 </script>

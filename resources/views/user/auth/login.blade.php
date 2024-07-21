@@ -66,19 +66,18 @@
                                     class="btn btn-lg btn-round btn-primary btn-block mb-0 bg-green-500"><i
                                         class="fas fa-sign-in-alt" aria-hidden="true"></i>Login</button>
 
-                                <div class="d-flex w-100 justify-center">
+                                <div class="w-100 text-center mt-4">
                                     <label class="px-3">
-                                        <a href="{{ route('user.forgot-password.index') }}" class="text-reset">Forgot password?</a>
+                                        <a href="{{ route('user.forgot-password.index') }}" class="text-reset" >Forgot password?</a>
                                     </label>
                                 </div>
 
-                                <p class="d-flex w-100 justify-center">
-                                    The SCAMDEMIC has validated the need for a solution such as TBC. Putting our trust in a financial system linked directly to the FORCE of GOVERNMENT is clearly working against humanity.
-                                    <br />
-                                    <a href="https://kringle.cash" target="_blank">Read more</a>
-                                </p>
+                                <div class="w-100 text-center mt-4">
+                                    <p>The SCAMDEMIC has validated the need for a solution such as TBC. Putting our trust in a financial system linked directly to the FORCE of GOVERNMENT is clearly working against humanity.</p>
+                                    <p><a href="https://kringle.cash" target="_blank">Read more</a></p>
+                                </div>
 
-                                <div class="mt-4 px-2 font-semibold lg:px-10 justify-center">
+                                <div class="mt-4 px-2 font-semibold lg:px-10 text-center">
                                     <a href="{{ route('user.register') }}" class="hover:text-blue-700">Create your Account <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
                             </form>

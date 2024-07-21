@@ -163,7 +163,7 @@ class DashboardController extends Controller
             'receiver_wallet' => 'required',
         ]);
 
-        $receiver = User::where('receiver_wallet', $request->receiver_wallet)->first();
+        $receiver = User::where('walletaddr', $request->receiver_wallet)->first();
         $amount = $request->amount;
         $pay_currency = $request->pay_currency;
 

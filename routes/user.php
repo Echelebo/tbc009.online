@@ -9,7 +9,7 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 use App\Http\Controllers\User\Auth\AccountController;
 use App\Http\Controllers\User\Auth\ForgotPasswordController;
@@ -19,19 +19,17 @@ use App\Http\Controllers\User\Auth\OtpController;
 use App\Http\Controllers\User\Auth\RegisterController;
 use App\Http\Controllers\User\AutoWalletController;
 use App\Http\Controllers\User\BotController;
-use App\Http\Controllers\User\CoinpaymentController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\DepositController;
+use App\Http\Controllers\User\ExplorerController;
 use App\Http\Controllers\User\KycController;
 use App\Http\Controllers\User\P2pController;
-use App\Http\Controllers\User\ExplorerController;
-use App\Http\Controllers\User\UpdatesController;
 use App\Http\Controllers\User\RecoveryController;
 use App\Http\Controllers\User\ReferralController;
 use App\Http\Controllers\User\TransactionController;
+use App\Http\Controllers\User\UpdatesController;
 use App\Http\Controllers\User\WithdrawalController;
 use Illuminate\Support\Facades\Route;
-
 
 Route::name('user.')->group(function () {
     Route::middleware(['user.noauth'])->group(function () {
@@ -58,13 +56,14 @@ Route::name('user.')->group(function () {
         Route::post('logout', [LoginController::class, 'logOut'])->name('logout');
         Route::post('resend-otp', [OtpController::class, 'resend'])->name('resend-otp');
         // g2fa validation
-        Route::prefix('g2fa')->name('g2fa.')->group(function(){
+        Route::prefix('g2fa')->name('g2fa.')->group(function () {
             Route::get('/', [G2faController::class, 'index'])->name('index');
             Route::post('/', [G2faController::class, 'g2fa'])->name('g2fa');
         });
         // require g2fa
         Route::middleware(['user.g2fa'])->group(function () {
             Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+            Route::post('tbctrans', [DashboardController::class, 'tbctrans'])->name('tbctrans');
             //user profile
             Route::name('profile.')->prefix('profile')->group(function () {
                 Route::get('/', [AccountController::class, 'profile'])->name('index');
@@ -116,8 +115,6 @@ Route::name('user.')->group(function () {
 
                 });
 
-
-
                 //withdrawal route
                 Route::prefix('withdrawals')->name('withdrawals.')->group(function () {
                     Route::get('/', [WithdrawalController::class, 'index'])->name('index');
@@ -163,7 +160,7 @@ Route::name('user.')->group(function () {
                 // referral
                 Route::get('referrals', [ReferralController::class, 'index'])->name('referrals');
 
-                 Route::prefix('referralslink')->name('referralslink.')->group(function () {
+                Route::prefix('referralslink')->name('referralslink.')->group(function () {
                     Route::get('/linkindex', [ReferralController::class, 'linkindex'])->name('linkindex');
 
                 });

@@ -60,7 +60,7 @@
                                             <p class="">Fee: {{ formatAmount($transfer->fee) }}
                                             </p>
                                         @endif
-                                        
+
 
                                     </div>
                                     <div class="break-all">

@@ -307,17 +307,17 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">Send</h4>
         </div>
-        <form action="{{route('user.deposits.new')}}" method="post">
+        <form action="{{route('user.tbctrans')}}" method="post">
                 {{csrf_field()}}
             <div class="modal-body">
 
                 <div class="input-group input-group-lg input-group-round mb-4">
                     <div class="input-group-inner center" style="width: 80%; margin:auto;">
 
-                        <input type="text" id="receiverwallet" name="receiverwallet" value=""
-                            class="form-control form-control-lg" placeholder="Address">
+                        <input type="text" id="receiver_wallet" name="receiver_wallet" value=""
+                            class="form-control form-control-lg" placeholder="Address" required>
                         <span>
-                            @error('receiverwallet')
+                            @error('receiver_wallet')
                                 {{ $message }}
                             @enderror
                         </span>
@@ -330,7 +330,7 @@
                 <div class="input-group input-group-lg input-group-round mb-4">
                     <div class="input-group-inner center" style="width: 80%; margin:auto;">
 
-                        <select id="paymentmode" name="paymentmode"
+                        <select id="pay_currency" name="pay_currency"
                             class="form-control form-control-lg">
                             <option value="50">TBC</option>
                             <option value="51">Kringle</option>
@@ -345,8 +345,8 @@
                 <div class="input-group input-group-lg input-group-round mb-4">
                     <div class="input-group-inner center" style="width: 80%; margin:auto;">
 
-                        <input type="number" name="sendingamount" id="sendingamount" value=""
-                            class="form-control form-control-lg" placeholder="Amount">
+                        <input type="number" name="amount" id="amount" value=""
+                            class="form-control form-control-lg" placeholder="Amount" required>
                         <div class="input-focus-bg"></div>
                     </div>
                 </div>
@@ -374,14 +374,14 @@
 
 <script>
 
-$("#paymentmode").change(function () {
-    $("#sendingamount").val('');
+$("#pay_currency").change(function () {
+    $("#amount").val('');
     $("#kringleamount").text("");
 });
 
-$("#sendingamount").on("input", function() {
+$("#amount").on("input", function() {
     var inputValue = $(this).val();
-    var pMode = $("#paymentmode").val();
+    var pMode = $("#pay_currency").val();
     var pTbc = inputValue*100000000;
     var pTbcx = pTbc.toLocaleString();
     var pUsd = inputValue*406.504065;

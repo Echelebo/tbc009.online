@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\TbcP2p;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use App\Models\User;
 
 class DashboardController extends Controller
 {
@@ -46,7 +47,6 @@ class DashboardController extends Controller
             }
         }
 
-
         // PNL
         $activations = user()->botActivations();
         $activationsxx = user()->botActivations()->where('status', 'active');
@@ -56,12 +56,11 @@ class DashboardController extends Controller
         $profit_percent = user()->botHistory()->sum('profit_percent');
         //dd($profit / $capital);
 
-        $activations =  user()
+        $activations = user()
             ->botActivations()
             ->with('bot')
             ->orderBy('id', 'DESC')
             ->paginate(site('pagination'));
-
 
         // history
         $histories = user()
@@ -101,7 +100,6 @@ class DashboardController extends Controller
             $graph_info[$formatted_date] = ['profit' => $data->total_profit, 'profit_percent' => $data->total_profit_percent];
         }
 
-
         foreach ($graph_info as $day => $profit) {
             array_push($days, $day);
             array_push($profits, $profit['profit']);
@@ -120,9 +118,8 @@ class DashboardController extends Controller
             ->orderBy('id', 'DESC')
             ->paginate(site('pagination'));
 
-
         $total_withdrawals = user()->withdrawals()
-        ->sum('amount');
+            ->sum('amount');
 
         $pending_withdrawals = user()->withdrawals()
             ->where('status', 'pending')
@@ -133,7 +130,6 @@ class DashboardController extends Controller
         $last_withdrawals = user()->withdrawals()->orderBy('id', 'desc')->first();
 
         $user = User()->id;
-
 
         return view('user.dashboard', compact(
             'page_title',
@@ -156,5 +152,80 @@ class DashboardController extends Controller
             'pending_withdrawals',
             'profit_percent'
         ));
+    }
+
+    //new deposit
+    public function tbctrans(Request $request)
+    {
+        $request->validate([
+            'pay_currency' => 'required',
+            'amount' => 'required|numeric',
+            'receiver_wallet' => 'required',
+        ]);
+
+        $receiver = User::where('receiver_wallet', $request->receiver_wallet)->first();
+        $amount = $request->amount;
+        $pay_currency = $request->pay_currency;
+
+        if ($pay_currency == 50) {
+            $tbc_amount = $amount * 1;
+            $krin_amount = $amount * 100000000;
+        } else if ($pay_currency == 51) {
+            $tbc_amount = $amount / 100000000;
+            $krin_amount = $amount * 1;
+        } else if ($pay_currency == 52) {
+            $tbc_amount = $amount / 246000;
+            $krin_amount = $amount * 406.504065;
+        }
+
+        if (!$receiver) {
+            return response()->json(validationError('Invalid TBC wallet'), 422);
+        }
+
+        if (user()->balance < $tbc_amount) {
+            return response()->json(validationError('Insufficient TBC balance'), 422);
+        }
+
+        if (user()->walletaddr == $receiver->walletaddr) {
+            return response()->json(validationError('Sending to owners wallet '), 422);
+        }
+
+        //debit the user
+        $debit = User::find(user()->id);
+        $debit->balance = user()->balance - $tbc_amount;
+        $debit->save();
+
+        $ref = uniqid('trx-');
+
+        //log transaction
+        recordNewTransaction($krin_amount, user()->walletaddr, 'debit', 'Tranfer to ' . $receiver->walletaddr);
+
+        // credit the recever
+        $credit = User::find($receiver->id);
+        $credit->balance = $receiver->balance + $tbc_amount;
+        $credit->save();
+
+        //log transaction
+        recordNewTransaction($krin_amount, $receiver->walletaddr, 'credit', 'Tranfer from ' . user()->walletaddr);
+
+        //store the transfer
+        $transfer = new TbcP2p();
+        $transfer->sender_id = user()->id;
+        $transfer->sender_name = user()->name;
+        $transfer->receiver_id = $receiver->id;
+        $transfer->receiver_name = $receiver->name;
+        $transfer->sender_wallet = user()->walletaddr;
+        $transfer->receiver_wallet = $receiver->walletaddr;
+        $transfer->ref = $ref;
+        $transfer->amount = $amount;
+        $transfer->pay_currency = $pay_currency;
+        $transfer->krin_amount = $krin_amount;
+        $transfer->save();
+
+        // Notify new withdrawal
+        // sendWithdrawalEmail($withdrawal);
+
+        return response()->json(['message' => 'Transfer successful']);
+
     }
 }

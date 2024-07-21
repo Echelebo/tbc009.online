@@ -66,18 +66,18 @@
                                     class="btn btn-lg btn-round btn-primary btn-block mb-0 bg-green-500"><i
                                         class="fas fa-sign-in-alt" aria-hidden="true"></i>Login</button>
 
-                                <div class="w-100 font-semibold lg:px-10 text-center mt-4">
+                                <div class="w-100 text-center mt-4">
                                     <label class="px-3">
-                                        <a href="{{ route('user.forgot-password.index') }}" class="text-reset-x hover:text-blue-700" >Forgot password?</a>
+                                        <a href="{{ route('user.forgot-password.index') }}" class="font-semibold lg:px-10 text-reset-x hover:text-blue-700" >Forgot password?</a>
                                     </label>
                                 </div>
 
                                 <div class="w-100 text-center mt-4">
-                                    <p style="font-size: 14px;">The SCAMDEMIC has validated the need for a solution such as TBC. Putting our trust in a financial system linked directly to the FORCE of GOVERNMENT is clearly working against humanity.</p>
+                                    <p style="font-size: 14px;">The SCAMDEMIC has validated the need for a solution such as TBC. Putting our trust in a financial system linked directly to the FORCE of GOVERNMENT is clearly working against humanity.</p><br />
                                     <p style="font-size: 14px;"><a href="https://kringle.cash" target="_blank"><b>Read more</b></a></p>
                                 </div>
 
-                                <div class="mt-4 px-2 font-semibold lg:px-10 text-center">
+                                <div class="mt-8 px-2 font-semibold lg:px-10 text-center">
                                     <a href="{{ route('user.register') }}" class="hover:text-blue-700">Create your Account <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
                             </form>

@@ -358,8 +358,8 @@
 
             </div>
             <div class="modal-footer" style="width: 80%; margin:auto;">
-                <button type="button" style="width: 40%;" class="btn btn-default text-white bg-green-500" data-dismiss="modal">Close</button>
-                <button type="submit" style="width: 40%;" class="btn btn-primary bg-green-500">Save</button>
+                <button type="button" style="width: 50%;" class="btn btn-default text-white bg-green-500" data-dismiss="modal">Close</button>
+                <button type="submit" style="width: 50%;" class="btn btn-primary bg-green-500">Save</button>
               </div>
 
         </form>

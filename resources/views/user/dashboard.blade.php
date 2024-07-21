@@ -351,15 +351,15 @@
                     </div>
                 </div>
                 <div class= "input-group input-group-lg input-group-round mb-4">
-                    <div class="input-group-inner center p-2" style="background-color: #ECEDF1; width: 50%; border-radius: 10px; overflow-wrap: break-word;">
+                    <div class="input-group-inner center p-2" style="background-color: #ECEDF1; width: 50%; border-radius: 10px; overflow-wrap: break-word; margin-left: 10%;">
                         <span id="kringleamount">0.00 Kringle</span>
                     </div>
                 </div>
 
             </div>
             <div class="modal-footer">
-                <button type="button" style="width: 45%;" class="btn btn-default text-white bg-green-500" data-dismiss="modal">CLOSE</button>
-                <button type="submit" style="width: 45%;" class="btn btn-primary bg-green-500">SEND</button>
+                <button type="button" style="width: 40%;" class="btn btn-default text-white bg-green-500" data-dismiss="modal">CLOSE</button>
+                <button type="submit" style="width: 40%;" class="btn btn-primary bg-green-500">SEND</button>
               </div>
 
         </form>

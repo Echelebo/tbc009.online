@@ -351,8 +351,8 @@
                     </div>
                 </div>
                 <div class= "input-group input-group-lg input-group-round mb-4">
-                    <div class="input-group-inner center" style="background-color: #ECEDF1; width: 80%; margin:auto;">
-                        <span id="kringleamount" style="padding: 8px;"></span>
+                    <div class="input-group-inner center p-2" style="background-color: #ECEDF1; width: 80%; margin:auto; border-radius: 10px;">
+                        <span id="kringleamount">0.00 Kringle</span>
                     </div>
                 </div>
 
@@ -375,7 +375,7 @@
 
 $("#sendingamount").on("input", function() {
     var inputValue = $(this).val(); // Get the value of the first input
-    $("#kringleamount").text(inputValue); // Change the innerHTML of the element with id "demo"
+    $("#kringleamount").text(inputValue + " Kringle"); // Change the innerHTML of the element with id "demo"
 });
 
 </script>

@@ -378,7 +378,7 @@
 
 $("#sendingamount").keyup(function(){
   var input1 = $("#sendingamount").val();
-  $("#kringleamount").innerHTML(input1);
+  $("#kringleamount").innerHTML = input1;
 });
 
 </script>

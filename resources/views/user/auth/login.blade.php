@@ -44,13 +44,7 @@
                                 </div>
 
                                 <div class="input-group input-group-lg input-group-round mb-4">
-                                    <div class="d-flex w-100 justify-content-between">
 
-                                        <label class="px-3">
-                                            <a href="{{ route('user.forgot-password.index') }}" class="text-reset">Forgot
-                                                password?</a>
-                                        </label>
-                                    </div>
                                     <div class="input-group-inner">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text input-group-icon"><i class="far fa-eye-slash"
@@ -72,7 +66,19 @@
                                     class="btn btn-lg btn-round btn-primary btn-block mb-0 bg-green-500"><i
                                         class="fas fa-sign-in-alt" aria-hidden="true"></i>Login</button>
 
-                                <div class="mt-4 px-2 font-semibold lg:px-10">
+                                <div class="d-flex w-100 justify-center">
+                                    <label class="px-3">
+                                        <a href="{{ route('user.forgot-password.index') }}" class="text-reset">Forgot password?</a>
+                                    </label>
+                                </div>
+
+                                <p class="d-flex w-100 justify-center">
+                                    The SCAMDEMIC has validated the need for a solution such as TBC. Putting our trust in a financial system linked directly to the FORCE of GOVERNMENT is clearly working against humanity.
+                                    <br />
+                                    <a href="https://kringle.cash" target="_blank">Read more</a>
+                                </p>
+
+                                <div class="mt-4 px-2 font-semibold lg:px-10 justify-center">
                                     <a href="{{ route('user.register') }}" class="hover:text-blue-700">Create your Account <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
                             </form>

@@ -381,6 +381,7 @@ $("#sendingamount").on("input", function() {
 
 $("#paymentmode").change(function () {
     $("#sendingamount").val('');
+    $("#kringleamount").text("");
 });
 </script>
 

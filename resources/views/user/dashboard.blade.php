@@ -354,7 +354,7 @@
                     <div class="input-group-inner center" style="width: 50%; margin:auto;">
 
                         <input type="text" name="kringleamount"  id="kringleamount" value=""
-                            class="form-control form-control-lg" readonly>
+                            class="form-control form-control-lg">
                         <div class="input-focus-bg"></div>
                     </div>
                 </div>

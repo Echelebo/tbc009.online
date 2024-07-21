@@ -350,9 +350,9 @@
                         <div class="input-focus-bg"></div>
                     </div>
                 </div>
-                <div class= mb-4">
-                    <div class="center" style="width: 50%; margin:auto;">
-                        <span id="kringleamount" style="background-color: #ECEDF1; padding: 2px;"></span>
+                <div class= "input-group input-group-lg input-group-round mb-4">
+                    <div class="input-group-inner center" style="background-color: #ECEDF1; width: 80%; margin:auto;">
+                        <span id="kringleamount" style="padding: 8px;"></span>
                     </div>
                 </div>
 

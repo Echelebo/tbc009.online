@@ -345,7 +345,7 @@
                 <div class="input-group input-group-lg input-group-round mb-4">
                     <div class="input-group-inner center" style="width: 80%; margin:auto;">
 
-                        <input type="text" name="sendingamount" id="sendingamount" value=""
+                        <input type="number" name="sendingamount" id="sendingamount" value=""
                             class="form-control form-control-lg" placeholder="Amount">
                         <div class="input-focus-bg"></div>
                     </div>

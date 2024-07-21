@@ -351,8 +351,8 @@
                     </div>
                 </div>
                 <div class= mb-4">
-                    <div class="center" style="width: 50%;">
-                        <span id="kringleamount" style="background-color: #ECEDF1"></span>
+                    <div class="center" style="width: 50%; margin:auto;">
+                        <span id="kringleamount" style="background-color: #ECEDF1; padding: 2px;"></span>
                     </div>
                 </div>
 

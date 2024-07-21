@@ -384,7 +384,7 @@ $("#sendingamount").on("input", function() {
     var pMode = $("#paymentmode").val();
     var pTbc = inputValue*100000000;
     var pTbcx = pTbc.toLocaleString();
-    var pUsd = inputValue*246000;
+    var pUsd = inputValue*406.504065;
     var pUsdx = pUsd.toLocaleString();
     var pKrin = inputValue.toLocaleString();
     if (pMode == 50) {

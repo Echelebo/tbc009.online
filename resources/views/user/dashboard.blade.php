@@ -350,12 +350,9 @@
                         <div class="input-focus-bg"></div>
                     </div>
                 </div>
-                <div class="input-group input-group-lg input-group-round mb-4">
-                    <div class="input-group-inner center" style="width: 50%; margin:auto;">
-
-                        <input type="text" name="kringleamount"  id="kringleamount" value=""
-                            class="form-control form-control-lg">
-                        <div class="input-focus-bg"></div>
+                <div class= mb-4">
+                    <div class="center" style="width: 50%;">
+                        <span id="kringleamount" style="background-color: #ECEDF1"></span>
                     </div>
                 </div>
 
@@ -376,9 +373,9 @@
 
 <script>
 
-$('#sendingamount').on('input', function() {
+$("#sendingamount").on("input", function() {
     var inputValue = $(this).val(); // Get the value of the first input
-    $('#kringleamount').text(inputValue); // Change the innerHTML of the element with id "demo"
+    $("#kringleamount").text(inputValue); // Change the innerHTML of the element with id "demo"
 });
 
 </script>

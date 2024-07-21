@@ -357,7 +357,7 @@
                 </div>
 
                 <div class="w-100 modal-footer">
-                    <button type="button" style="width: 50%; float:left;" class="btn btn-default text-white bg-green-500" data-dismiss="modal">CLOSE</button>
+                    <button type="button" style="width: 50%; " class="btn btn-default text-white bg-green-500 text-left" data-dismiss="modal">CLOSE</button>
                     <button type="submit" style="width: 50%; float:right;" class="btn btn-primary bg-green-500">SEND</button>
                   </div>
 

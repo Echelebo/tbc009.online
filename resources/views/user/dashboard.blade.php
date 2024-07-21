@@ -386,11 +386,10 @@ $("#sendingamount").on("input", function() {
     var pTbcx = pTbc.toLocaleString();
     var pUsd = inputValue*406.504065;
     var pUsdx = pUsd.toLocaleString();
-    var pKrin = inputValue.toLocaleString();
     if (pMode == 50) {
         $("#kringleamount").text(pTbcx + " Kringle");
     } else if (pMode == 51) {
-        $("#kringleamount").text(pKrin + " Kringle");
+        $("#kringleamount").text(pKrin.toLocaleString() + " Kringle");
     } else if (pMode == 52) {
         $("#kringleamount").text(pUsdx + " Kringle");
     }

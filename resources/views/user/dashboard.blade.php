@@ -276,8 +276,8 @@
         @forelse ($transactions as $transaction)
     <div class="tranx-area mt-4" style="border-width:3px; border-radius:15px;">
 
-        <div class="row mt-5" >
-    <div class="col-2" style="width:50%; margin:auto;">
+        <div class="row" >
+    <div class="col-2 text-center" style="width:50%; margin:auto;">
                         @if ($transaction->type == 'debit')
                             <span class="text-red-500 uppercase text-xs" ><img src="/prime/assets/images/debit.png" ></span>
                         @else

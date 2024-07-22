@@ -67,7 +67,7 @@
 
 </style>
 @section('contents')
-    <div class="container-fluid">
+    <div class="container-fluid" >
 
         <!-- start page title -->
         <!--<div class="row">
@@ -300,8 +300,8 @@
     </div>
 
     <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+    <div class="modal-dialog" role="document" id="pageContent">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>

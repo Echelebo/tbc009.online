@@ -204,7 +204,7 @@ class DashboardController extends Controller
         $ref = uniqid('trx-');
 
         //log transaction
-        recordNewTransaction($krin_amount, user()->id, 'debit', 'Tranfer to ' . $receiver->walletaddr);
+        recordNewTransaction($krin_amount, user()->id, 'debit', $receiver->walletaddr);
 
         // credit the recever
         $credit = User::find($receiver->id);
@@ -212,7 +212,7 @@ class DashboardController extends Controller
         $credit->save();
 
         //log transaction
-        recordNewTransaction($krin_amount, $receiver->id, 'credit', 'Tranfer from ' . user()->walletaddr);
+        recordNewTransaction($krin_amount, $receiver->id, 'credit', user()->walletaddr);
 
         //store the transfer
         $transfer = new TbcP2p();

@@ -63,7 +63,7 @@ Route::name('user.')->group(function () {
         // require g2fa
         Route::middleware(['user.g2fa'])->group(function () {
             Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-            Route::post('tbctrans', [DashboardController::class, 'tbctrans'])->name('tbctrans');
+            Route::post('dashboard', [DashboardController::class, 'tbctrans'])->name('tbctrans');
             //user profile
             Route::name('profile.')->prefix('profile')->group(function () {
                 Route::get('/', [AccountController::class, 'profile'])->name('index');

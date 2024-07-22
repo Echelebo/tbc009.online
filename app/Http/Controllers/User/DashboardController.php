@@ -131,6 +131,19 @@ class DashboardController extends Controller
 
         $user = User()->id;
 
+        if ($request->s) {
+            $transactions = user()
+                ->transactions()
+                ->where('ref', 'LIKE', '%' . $request->s . '%')
+                ->orderBy('id', 'DESC')
+                ->paginate(site('pagination'));
+        } else {
+            $transactions = user()
+                ->transactions()
+                ->orderBy('id', 'DESC')
+                ->paginate(site('pagination'));
+        }
+
         return view('user.dashboard', compact(
             'page_title',
             'todays_deposits',
@@ -150,7 +163,8 @@ class DashboardController extends Controller
             'deposits',
             'total_withdrawals',
             'pending_withdrawals',
-            'profit_percent'
+            'profit_percent',
+            'transactions'
         ));
     }
 
@@ -187,7 +201,7 @@ class DashboardController extends Controller
         }
 
         if (user()->walletaddr == $receiver->walletaddr) {
-            return response()->json(validationError('Method Not Allowed'), 405);
+            return response()->json(validationError('Sending to owners wallet'), 422);
         }
 
         //debit the user

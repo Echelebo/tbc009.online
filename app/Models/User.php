@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
+use App\Observers\UserObserver;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Cache;
-use App\Observers\UserObserver;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -39,7 +39,7 @@ class User extends Authenticatable
         'referred_by',
         'status',
         'g2fa',
-        'g2fa_secret'
+        'g2fa_secret',
     ];
 
     /**
@@ -71,8 +71,6 @@ class User extends Authenticatable
         return $this->hasMany(KycRecord::class);
     }
 
-
-
     //get deposits
     public function deposits()
     {
@@ -103,6 +101,11 @@ class User extends Authenticatable
         return $this->hasMany(Transaction::class);
     }
 
+    public function tbcP2ps()
+    {
+        return $this->hasMany(TbcP2p::class);
+    }
+
     //get bot activations
     public function botActivations()
     {
@@ -114,7 +117,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(BotHistory::class);
     }
-
 
     // define relationship with autowallets
     public function autoWallets()
@@ -152,7 +154,6 @@ class User extends Authenticatable
         return $this->hasMany(User::class, 'referred_by', 'username');
     }
 
-
     public function getReferralTree($level = 1, $maxLevel = 10)
     {
         $tree = [];
@@ -176,7 +177,6 @@ class User extends Authenticatable
         return $tree;
     }
 
-
     // give referral bonus
     public function giveReferralBonus($depositAmount, $depth = 1)
     {
@@ -199,8 +199,6 @@ class User extends Authenticatable
             $this->referrer->giveReferralBonus($depositAmount, $depth + 1);
         }
     }
-
-
 
     /**
      * Boot the model.

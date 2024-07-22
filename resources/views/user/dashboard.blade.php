@@ -268,21 +268,26 @@
                             </div>
 
                             </div>
-                            <div class="row mt-24">
-                                <div class="col-md-12">
+<div class="row mt-24">
+<div class="col-md-12">
 
-                                    <p align="center"><font size="5" style="bold">Transactions</p>
+    <p align="center"><font size="5" style="bold">Transactions</p>
+        @forelse ($transactions as $transaction)
+    <div class="tranx-area mt-4" style="border-width:3px; border-radius:15px;">
+                <div class="row" >
+    <div class="col-2">
+                        @if ($transaction->type == 'debit')
+                            <span class="text-red-500 uppercase text-xs"><img src="/prime/assets/images/debit.png" class="center" style="width:30%; margin:auto;"></span>
+                        @else
+                            <span class="text-green-500 uppercase text-xs"><img src="/prime/assets/images/credit.png" class="center" style="width:30%; margin:auto;"></span>
+                        @endif
 
-                                    <div class="tranx-area mt-4" style="border-width:3px; border-radius:15px;">
-                                    <div class="row" >
-                                    <div class="col-2">
-                                        <img src="/prime/assets/send.png" class="center" style="width:40px; height:40px;">
 
-                                    </div>
-                                    <div class="col-10 p-4 text-left">
-                                        <h4 style="color:#111010; font-size:30px;">11,493 Kringle</h4>
-                                        <p style="font-size:20px;">Receiver/sender wallet address</p>
-                                        <span style="font-size:15px;">June 11, 2021 at 2:44 PM</span>
+    </div>
+        <div class="col-10 p-4 text-left">
+                <h4 style="color:#111010; font-size:30px;">{{ formatAmount($transaction->amount) }} Kringles</h4>
+                              <p style="font-size:20px;">{{ $transaction->description }}</p>
+                                        <span style="font-size:15px;">{{ date('d-m-y H:i:s', strtotime($transaction->created_at)) }}</span>
 
                                     </div>
                                 </div>
@@ -299,15 +304,21 @@
         </div>
     </div>
 
+    @empty
+
+    <div class="mt-8"> </div>
+
+    @endforelse
+
     <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-    <div class="modal-dialog" role="document" id="pageContent">
+    <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">Send</h4>
         </div>
-        <form action="{{route('user.tbctrans')}}" method="post" id="tbctransferForm">
+        <form action="{{route('user.tbctrans')}}" method="post">
                 {{csrf_field()}}
             <div class="modal-body">
 
@@ -507,76 +518,4 @@ function closeNav() {
         });
     </script>
 
-
-<script>
-    $(document).on('submit', '#tbctransferForm', function(e) {
-            e.preventDefault();
-            var amount = $('#amount').val() * 1;
-            var currency = $('#pay_currency').val() * 1;
-
-            //check the currency code
-            var error = null;
-            //check min and max transfer
-
-            if (error === null) {
-                var form = $(this);
-                var formData = new FormData(this);
-
-                var submitButton = $(this).find('button[type="submit"]');
-                submitButton.addClass('relative disabled');
-                submitButton.append('<span class="button-spinner"></span>');
-                submitButton.prop('disabled', true);
-                $.ajax({
-                    url: form.attr('action'),
-                    method: 'POST',
-                    data: formData,
-                    dataType: 'json',
-                    contentType: false,
-                    processData: false,
-                    success: function(response) {
-
-
-                        loadPage(form.attr('action'), submitButton, '#pageContent');
-
-                        $('html, body').animate({
-                            scrollTop: 0 + 100
-                        }, 800);
-                        toastNotify('success', response.message);
-
-
-
-
-                    },
-                    error: function(xhr, status, error) {
-                        var errors = xhr.responseJSON.errors;
-
-                        if (errors) {
-                            $.each(errors, function(field, messages) {
-                                var fieldErrors = '';
-                                $.each(messages, function(index, message) {
-                                    fieldErrors += message + '<br>';
-                                });
-                                toastNotify('error', fieldErrors);
-                            });
-                        } else {
-                            toastNotify('error', 'An Error occured, try again later');
-                        }
-
-
-                    },
-                    complete: function() {
-                        submitButton.removeClass('disabled');
-                        submitButton.find('.button-spinner').remove();
-                        submitButton.prop('disabled', false);
-
-                    }
-                });
-            } else {
-
-                toastNotify('error', error);
-
-            }
-
-        });
-</script>
 @endsection

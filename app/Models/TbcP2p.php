@@ -22,4 +22,8 @@ class TbcP2p extends Model
         'ref',
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

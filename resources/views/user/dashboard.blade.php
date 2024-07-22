@@ -222,7 +222,8 @@
                                 </select>
 
 
-                                </div><div class="col-md-3">
+                            </div>
+                                <div class="col-md-3">
                                 </div>
                             <div class="col-md-6 py-4">
                                 <button style="font-size:15px;cursor:pointer;right:0;float:right;font-weight:bold;background-color:#3d5acb;margin-left:20px;padding:4px 12px;border-width:0;border-radius:15px;color:#fff;" onclick="openNav()">&#9776; MENU</button>
@@ -249,14 +250,14 @@
                         </div>
                         <div class="row mt-12">
                             <div class="col-md-12 text-center">
-                                <div class="wallet-area">
+                        <div class="wallet-area">
                                 <p><font size="5">Balance <span id="balancerate">{{ user()->balance }} TBC</span></font></p>
                                 <br />
                                 <div class="w-full flex justify-center items-center mb-2">
                                     <img src="/prime/images/qrcode.png" width="200px" height="150px" />
                                 </div><br />
                                 <p class="wallettext" style="background-color:#ECEDF1; color: #1d1a1ad3; padding: 2px;"><b>{{ user()->walletaddr }}</b></p>
-                                <div class="row mt-4">
+                            <div class="row mt-4">
                                 <div class="col-6 text-center">
                                     <button type="button" class="btn btn-lg btn-primary bg-green-500" data-toggle="modal" data-target="#myModal" style="font-size:15px;cursor:pointer;font-weight:bold;border-width:0;width:80%;border-radius:15px;color:#fff;"> SEND </button>
                                 </div>
@@ -272,26 +273,35 @@
 <div class="col-md-12">
 
     <p align="center"><font size="5" style="bold">Transactions</p>
-        @forelse ($transactions as $transaction)
+
     <div class="tranx-area mt-4" style="border-width:3px; border-radius:15px;">
-                <div class="row" >
+        @forelse ($transactions as $transaction)
+        <div class="row" >
     <div class="col-2">
                         @if ($transaction->type == 'debit')
-                            <span class="text-red-500 uppercase text-xs"><img src="/prime/assets/images/debit.png" class="center" style="width:30%; margin:auto;"></span>
+                            <span class="text-red-500 uppercase text-xs" style="width:30%; margin:auto;"><img src="/prime/assets/images/debit.png" ></span>
                         @else
-                            <span class="text-green-500 uppercase text-xs"><img src="/prime/assets/images/credit.png" class="center" style="width:30%; margin:auto;"></span>
+                            <span class="text-green-500 uppercase text-xs" style="width:30%; margin:auto;"><img src="/prime/assets/images/credit.png" ></span>
                         @endif
 
 
     </div>
+
         <div class="col-10 p-4 text-left">
-                <h4 style="color:#111010; font-size:30px;">{{ formatAmount($transaction->amount) }} Kringles</h4>
-                              <p style="font-size:20px;">{{ $transaction->description }}</p>
-                                        <span style="font-size:15px;">{{ date('d-m-y H:i:s', strtotime($transaction->created_at)) }}</span>
+                <h4 style="color:#111010; font-size:30px;">{{ number_format($transaction->amount) }} Kringles</h4>
+                              <p style="font-size:20px; font-weight:bold;">{{ $transaction->description }}</p>
+                                        <span style="font-size:18px;">{{ date('d-m-y H:i:s', strtotime($transaction->created_at)) }}</span>
 
                                     </div>
-                                </div>
 
+
+
+
+                                </div>
+                                @empty
+                                <div class="mt-8"> </div>
+
+                                @endforelse
 
                                 </div>
 
@@ -301,14 +311,11 @@
                 </div>
             </div>
 
+
         </div>
     </div>
 
-    @empty
 
-    <div class="mt-8"> </div>
-
-    @endforelse
 
     <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >

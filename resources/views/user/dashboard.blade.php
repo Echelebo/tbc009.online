@@ -277,9 +277,9 @@
                 <div class="row" >
                      <div class="col-2">
                     @if ($transaction->type == "debit")
-                      <img src="/prime/assets/images/debit.png" class="center" style="width:40px; height:40px; margin-top: 50%;">
+                      <img src="/prime/assets/images/debit.png" class="center" style="width:50%; margin: auto;">
                       @else
-                      <img src="/prime/assets/images/credit.png" class="center" style="width:40px; height:40px; margin-top: 50%;">
+                      <img src="/prime/assets/images/credit.png" class="center" style="width:50%; margin: auto;">
                       @endif
                         </div>
                      <div class="col-10 p-4 text-left">

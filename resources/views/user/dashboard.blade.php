@@ -273,15 +273,15 @@
 <div class="col-md-12">
 
     <p align="center"><font size="5" style="bold">Transactions</p>
-
-    <div class="tranx-area mt-4" style="border-width:3px; border-radius:15px;">
         @forelse ($transactions as $transaction)
-        <div class="row" >
-    <div class="col-2">
+    <div class="tranx-area mt-4" style="border-width:3px; border-radius:15px;">
+
+        <div class="row mt-5" >
+    <div class="col-2" style="width:50%; margin:auto;">
                         @if ($transaction->type == 'debit')
-                            <span class="text-red-500 uppercase text-xs" style="width:30%; margin:auto;"><img src="/prime/assets/images/debit.png" ></span>
+                            <span class="text-red-500 uppercase text-xs" ><img src="/prime/assets/images/debit.png" ></span>
                         @else
-                            <span class="text-green-500 uppercase text-xs" style="width:30%; margin:auto;"><img src="/prime/assets/images/credit.png" ></span>
+                            <span class="text-green-500 uppercase text-xs" ><img src="/prime/assets/images/credit.png" ></span>
                         @endif
 
 
@@ -298,13 +298,13 @@
 
 
                                 </div>
+
+
+                                </div>
                                 @empty
                                 <div class="mt-8"> </div>
 
                                 @endforelse
-
-                                </div>
-
                                 </div>
 
                     </div>

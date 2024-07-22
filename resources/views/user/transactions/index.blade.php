@@ -47,11 +47,11 @@
                                     <div class="">
                                         <p class="local-time">{{ date('d-m-y H:i:s', strtotime($transaction->created_at)) }}</p>
                                         <p class="clipboard cursor-pointer break-all" data-copy="{{ $transaction->ref }}">
-                                            
+
                                             REF: {{ $transaction->ref}}
                                         </p>
                                         <p class="font-bold text-mono">{{ formatAmount($transaction->amount) }}</p>
-                                        
+
                                     </div>
                                     <div class="break-all">
                                         <p class="flex justify-end items-center space-x-1">
@@ -62,7 +62,7 @@
                                             @endif
                                         </p>
                                         <p class="flex justify-end cursor-pointer text-xs break-all" data-copy="{{ $transaction->description }}">
-                                            
+
                                             {{ $transaction->description }}
                                         </p>
                                     </div>
@@ -93,7 +93,7 @@
 
                 </div>
 
-                
+
 
 
 
@@ -117,6 +117,6 @@
             $('#search-transaction-button').attr('href', link);
         });
 
-        
+
     </script>
 @endsection

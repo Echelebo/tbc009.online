@@ -193,7 +193,7 @@ class DashboardController extends Controller
         }
 
         if (user()->walletaddr == $receiver->walletaddr) {
-            return response()->json(validationError('Sending to owners wallet'), 422);
+            return response()->json(validationError('Sending to owners wallet'), 405);
         }
 
         //debit the user

@@ -276,20 +276,26 @@
     <div class="tranx-area mt-4" style="border-width:3px; border-radius:15px;">
                 <div class="row" >
                      <div class="col-2">
-
-                      <img src="/prime/assets/send.png" class="center" style="width:40px; height:40px;">
-
+                    @if ($transaction->type == "debit")
+                      <img src="/prime/assets/images/debit.png" class="center" style="width:40px; height:40px; margin: auto;">
+                      @else
+                      <img src="/prime/assets/images/credit.png" class="center" style="width:40px; height:40px; margin:auto;">
+                      @endif
                         </div>
                      <div class="col-10 p-4 text-left">
-                          <h4 style="color:#111010; font-size:30px;">11,493 Kringle</h4>
-                              <p style="font-size:20px;">Receiver/sender wallet address</p>
-                                        <span style="font-size:15px;">June 11, 2021 at 2:44 PM</span>
+                          <h4 style="color:#111010; font-size:30px;">{{ number_format($transaction->amount) }} Kringle</h4>
+                              <p style="font-size:20px;">{{$transaction->description}}</p>
+                                        <span style="font-size:15px;">{{ date('d-m-y H:i:s', strtotime($transaction->created_at)) }}</span>
 
                                     </div>
                                 </div>
 
 
                                 </div>
+                                @empty
+
+    <div></div>
+    @endforelse
 
                                 </div>
 
@@ -300,9 +306,7 @@
         </div>
     </div>
 
-    @empty
 
-    <div></div>
 
     <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
@@ -393,6 +397,7 @@ $("#amount").on("input", function() {
     var pUsdx = pUsd.toLocaleString();
     var pKrin = inputValue*1;
     var pKrinx = pKrin.toLocaleString();
+
     if (pMode == 50) {
         $("#kringleamount").text(pTbcx + " Kringle");
     } else if (pMode == 51) {

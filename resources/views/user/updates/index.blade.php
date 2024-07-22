@@ -205,7 +205,7 @@
                     <!--<h5 class="card-header bg-primary text-white">Dashboard</h5>-->
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-3 col-sm-3" style="padding-left: 20px">
+                            <div class="col-md-3 col-sm-3" style="padding-left: 20px; display:none;">
                                 <h2><font color="#111010" size="4"><b>Hello, {{ user()->name }}</b><br />({{ user()->email }})</font></h2>
                                 <br />
                                 <select id="chooserate" class="form-control form-control-lg" style="background: #fff;width:50%;">
@@ -243,47 +243,14 @@
                         <div class="row mt-12">
                             <div class="col-md-12 text-center">
                                 <div class="wallet-area">
-                                <p><font size="5">Balance <span id="balancerate">{{ user()->balance }} TBC</span></font></p>
-                                <br />
-                                <p>qrcode here</p><br />
-                                <p style="background-color:#ECEDF1; color: #1d1a1ad3; padding: 2px;"><font size="5">Wallet Address</font></p>
-                                <div class="row mt-4">
-                                <div class="col-6 text-center">
-                                    <a href="" class="btn btn-lg btn-primary bg-green-500" style="font-size:15px;cursor:pointer;font-weight:bold;border-width:0;width:80%;border-radius:15px;color:#fff;"> SEND </a>
-                                </div>
-                                <div class="col-6 text-center">
-                                    <a href="" class="btn btn-lg btn-primary bg-green-500" style="font-size:15px;cursor:pointer;font-weight:bold;border-width:0;width:80%;border-radius:15px;color:#fff;"> EXCHANGE </a>
-                                </div>
-                            </div>
+
+
+
                             </div>
                             </div>
 
                             </div>
-                            <div class="row mt-24">
-                                <div class="col-md-12">
 
-                                    <p align="center"><font size="5" style="bold">Transactions</p>
-
-                                    <div class="tranx-area mt-4" style="border-width:3px; border-radius:15px;">
-                                    <div class="row" >
-                                    <div class="col-2">
-                                        <img src="/prime/assets/send.png" class="center" style="width:40px; height:40px;">
-
-                                    </div>
-                                    <div class="col-10 p-4 text-left">
-                                        <h4 style="color:#111010; font-size:30px;">11,493 Kringle</h4>
-                                        <p style="font-size:20px;">Receiver/sender wallet address</p>
-                                        <span style="font-size:15px;">June 11, 2021 at 2:44 PM</span>
-
-                                    </div>
-                                </div>
-
-
-                                </div>
-
-                                </div>
-
-                    </div>
                 </div>
             </div>
 

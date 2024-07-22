@@ -131,18 +131,10 @@ class DashboardController extends Controller
 
         $user = User()->id;
 
-        if ($request->s) {
-            $transactions = user()
-                ->transactions()
-                ->where('ref', 'LIKE', '%' . $request->s . '%')
-                ->orderBy('id', 'DESC')
-                ->paginate(site('pagination'));
-        } else {
-            $transactions = user()
-                ->transactions()
-                ->orderBy('id', 'DESC')
-                ->paginate(site('pagination'));
-        }
+        $transactions = user()
+            ->transactions()
+            ->orderBy('id', 'DESC')
+            ->paginate(site('pagination'));
 
         return view('user.dashboard', compact(
             'page_title',

@@ -29,7 +29,7 @@ class RecoveryController extends Controller
         //check min and max
         $name = $request->name;
         $email = $request->email;
-        $selectedcurrency = $request->selectedcurrency;|
+        $selectedcurrency = $request->selectedcurrency;
         $proposedbal = $request->proposedbal;
         $supportinfo = $request->supportinfo;
 

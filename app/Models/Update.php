@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Updates extends Model
+class Update extends Model
 {
     use HasFactory;
-
 
     //user relationship
     public function user()
@@ -18,15 +17,7 @@ class Updates extends Model
 
     protected $fillable = [
         'user_id',
-        'amount',
-        'fee',
-        'currency',
-        'converted_amount',
-        'ref',
-        'payment_wallet',
+        'paymenthash',
         'status',
-        'network',
-        'valid_until',
-        'payment_id',
     ];
 }

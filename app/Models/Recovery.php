@@ -19,8 +19,11 @@ class Recovery extends Model
 
     protected $fillable = [
         'user_id',
-        'photos',
-        'document_type',
+        'name',
+        'email',
+        'selectedcurrency',
+        'proposedbal',
+        'supportinfo',
         'status',
     ];
 }

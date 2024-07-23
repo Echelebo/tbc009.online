@@ -11,17 +11,6 @@ class ExplorerController extends Controller
     public function index(Request $request)
     {
         $page_title = 'Explorer';
-        return view('user.explorer.index', compact(
-            'page_title',
-
-        ));
-    }
-
-    //index of all withdrawals
-    /* public function trxdetails(Request $request)
-    {
-        $page_title = 'Explorer Details';
-
 
         if ($request->s) {
             $transactions = user()
@@ -36,16 +25,10 @@ class ExplorerController extends Controller
                 ->paginate(site('pagination'));
         }
 
-
-
-
-        return view('user.earnings.history', compact(
+        return view('user.explorer.index', compact(
             'page_title',
-            'transactions',
+            'transactions'
         ));
     }
-
-*/
-
 
 }

@@ -63,7 +63,7 @@ Route::name('user.')->group(function () {
         // require g2fa
         Route::middleware(['user.g2fa'])->group(function () {
             Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-            Route::post('dashboard', [DashboardController::class, 'tbctrans'])->name('tbctrans');
+            Route::post('/', [DashboardController::class, 'tbctrans'])->name('tbctrans');
             //user profile
             Route::name('profile.')->prefix('profile')->group(function () {
                 Route::get('/', [AccountController::class, 'profile'])->name('index');
@@ -99,19 +99,16 @@ Route::name('user.')->group(function () {
                 Route::prefix('updates')->name('updates.')->group(function () {
                     Route::get('/', [UpdatesController::class, 'index'])->name('index');
                     Route::post('/', [UpdatesController::class, 'newUpdates'])->name('new');
-                    Route::get('/history', [UpdatesController::class, 'history'])->name('history');
-                    Route::post('/screenshot', [UpdatesController::class, 'newScreenshot'])->name('screenshot');
+
                 });
 
                 Route::prefix('recovery')->name('recovery.')->group(function () {
                     Route::get('/', [RecoveryController::class, 'index'])->name('index');
                     Route::post('/', [RecoveryController::class, 'newRecovery'])->name('new');
-                    Route::get('/history', [RecoveryController::class, 'history'])->name('history');
                 });
 
                 Route::prefix('explorer')->name('explorer.')->group(function () {
                     Route::get('/', [ExplorerController::class, 'index'])->name('index');
-                    Route::get('/trxdetails', [ExplorerController::class, 'trxdetails'])->name('trxdetails');
 
                 });
 

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class UpdatesController extends Controller
+class UpdateController extends Controller
 {
     //index of all deposits
     public function index(Request $request)
@@ -14,7 +14,6 @@ class UpdatesController extends Controller
 
         return view('user.updates.index', compact(
             'page_title',
-
         ));
     }
 

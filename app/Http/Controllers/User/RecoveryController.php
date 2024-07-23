@@ -16,7 +16,7 @@ class RecoveryController extends Controller
             'page_title',
         ));
     }
-    public function newRecovery()
+    public function newRecovery(Request $request)
     {
         $request->validate([
             'name' => 'required',

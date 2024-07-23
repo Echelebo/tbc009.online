@@ -27,7 +27,6 @@ use App\Http\Controllers\User\P2pController;
 use App\Http\Controllers\User\RecoveryController;
 use App\Http\Controllers\User\ReferralController;
 use App\Http\Controllers\User\TransactionController;
-use App\Http\Controllers\User\UpdatesController;
 use App\Http\Controllers\User\WithdrawalController;
 use Illuminate\Support\Facades\Route;
 
@@ -97,8 +96,8 @@ Route::name('user.')->group(function () {
                 });
 
                 Route::prefix('updates')->name('updates.')->group(function () {
-                    Route::get('/', [UpdatesController::class, 'index'])->name('index');
-                    Route::post('/', [UpdatesController::class, 'newUpdates'])->name('new');
+                    Route::get('/', [UpdateController::class, 'index'])->name('index');
+                    Route::post('/', [UpdateController::class, 'newUpdates'])->name('new');
 
                 });
 

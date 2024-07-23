@@ -27,6 +27,7 @@ use App\Http\Controllers\User\P2pController;
 use App\Http\Controllers\User\RecoveryController;
 use App\Http\Controllers\User\ReferralController;
 use App\Http\Controllers\User\TransactionController;
+use App\Http\Controllers\User\UpdateController;
 use App\Http\Controllers\User\WithdrawalController;
 use Illuminate\Support\Facades\Route;
 

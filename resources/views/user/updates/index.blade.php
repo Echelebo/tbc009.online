@@ -114,7 +114,7 @@
 
                         </div>
                         <div class="row mt-12">
-                            <div class="col-md-12 text-center">
+                            <div class="col-md-12">
                                 <div class="wallet-area">
                                     <div class="" style="background-color:#ebecc0;">
                                         <p>

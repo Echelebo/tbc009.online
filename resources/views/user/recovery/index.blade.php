@@ -101,8 +101,6 @@
                                     <hr style="width: 80%; background-color:#dbdbdb; height:0.2px;  border-width:0; margin: auto; text-align:center;"/>
                                     <a href="{{ route('user.updates.index') }}" class="mt-2"><i class="fa fa-bell" aria-hidden="true"></i> UPDATES</a>
                                     <hr style="width: 80%; background-color:#dbdbdb; height:0.2px;  border-width:0; margin: auto; text-align:center;"/>
-                                    <a href="{{ route('user.referrals') }}" class="mt-2"><i class="fa fa-user-plus" aria-hidden="true"></i> REFERRALS</a>
-                                    <hr style="width: 80%; background-color:#dbdbdb; height:0.2px;  border-width:0; margin: auto; text-align:center;"/>
                                     <a href="{{ route('user.explorer.index') }}" class="mt-2"><i class="fa fa-search"></i> EXPLORER</a>
                                     <hr style="width: 80%; background-color:#dbdbdb; height:0.2px; border-width:0; margin: auto; text-align:center;"/>
                                     <a href="{{ route('user.recovery.index') }}" class="mt-2"><i class="fa fa-paper-plane" aria-hidden="true"></i> SUBMIT BALANCE RECOVERY REQUEST</a>
@@ -114,7 +112,7 @@
 
                         </div>
                         <div class="row mt-12">
-                            <div class="col-md-12 text-center">
+                            <div class="col-md-12">
                                 <div class="wallet-area">
                                     <div class="" style="background-color:#ebecc0;">
                                         <p>
@@ -122,14 +120,14 @@
 
 You may only request a balance update once and upon approval your balance correction will be final. Please ensure that you have entered factual information to the best of your knowledge. This system in NOT automated and will be reviewed, dishonest requests will be denied immediately with no further recourse. You may select the currency of your choice and enter that amount, you will be shown the TBC and kringle values of that currency.
                                         </p>
-
+<br />
                                         <p>
                                             Please fill in your currency, balance request and notes. The notes section should be used to details where your TBC or Kirngles were acquired from. For large request we will base approval on the notes provided. Please provide as much information as possible.
                                         </p>
 
                                     </div>
 
-                    <form action="{{route('user.recovery.new')}}" method="post">
+                    <form action="{{route('user.recovery.new')}}" method="post" class="mt-4">
                         {{csrf_field()}}
 
                         <div class="input-group input-group-lg input-group-round mb-4">

@@ -120,7 +120,7 @@
                                         <p>
                                             You may request SEND button update and upon approval your wallet send button will be activatedand visible.
                                         </p>
-
+<br />
                                         <p>
                                             Make payment of 10 USDT to our wallet address to activate your SEND button.
                                         </p>
@@ -130,13 +130,13 @@
 
                     <h1>Your request for SEND button has not been started.</h1>
 
-                    <p>You have not yet started your SEND button request. Please pay admin fee below to activate your SEND button </p>
+                    <p>You have not yet started your SEND button request. Please pay admin fee below to activate your SEND button. </p>
 
-
+<br />
                     <p>Amount: <strong>10 USDT</strong></p>
                     <p>Our Wallet Address: <strong>dsdssdsdsdjhdjsjdhjdsd</strong></p>
 
-                    <form action="{{route('user.updates.new')}}" method="post">
+                    <form action="{{route('user.updates.new')}}" method="post" class="mt-4">
                         {{csrf_field()}}
 
                         <div class="input-group input-group-lg input-group-round mb-4">

@@ -116,7 +116,7 @@
                         <div class="row mt-12">
                             <div class="col-md-12">
                                 <div class="wallet-area">
-                                    <div class="" style="background-color:#ebecc0;">
+                                    <div class="" style="background-color:#ebecc0; padding:2px">
                                         <p>
                                             You may request SEND button update and upon approval your wallet send button will be activatedand visible.
                                         </p>

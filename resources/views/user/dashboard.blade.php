@@ -259,7 +259,7 @@
                                     <button type="button" class="btn btn-lg btn-primary bg-green-500" data-toggle="modal" data-target="#myModal" style="font-size:15px;cursor:pointer;font-weight:bold;border-width:0;width:80%;border-radius:15px;color:#fff;"> SEND </button>
                                 </div>
                                 <div class="col-6 text-center">
-                                    <a href="https://exchange.tbc009.online" class="btn btn-lg btn-primary bg-green-500" style="font-size:15px;cursor:pointer;font-weight:bold;border-width:0;width:80%;border-radius:15px;color:#fff;"> EXCHANGE </a>
+                                    <button type="button" class="btn btn-lg btn-primary bg-green-500" data-toggle="modal" data-target="#myModal1" style="font-size:15px;cursor:pointer;font-weight:bold;border-width:0;width:80%;border-radius:15px;color:#fff;"> EXCHANGE </button>
                                 </div>
                             </div>
                             </div>
@@ -372,6 +372,74 @@
             <div class="modal-footer" style="margin-right: 11%;">
                 <button type="button" style="width: 40%; border-radius: 10px;" class="btn btn-default text-white bg-green-500" data-dismiss="modal">CLOSE</button>
                 <button type="submit" style="width: 40%; border-radius: 10px;" class="btn btn-primary bg-green-500">SEND</button>
+              </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+      <!-- Modal -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+    <div class="modal-dialog" role="document" id="pageContent">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Exchange</h4>
+        </div>
+        <form action="{{route('user.tbctrans')}}" method="post" id="tbctransferForm">
+                {{csrf_field()}}
+            <div class="modal-body">
+
+                <div class="input-group input-group-lg input-group-round mb-4">
+                    <div class="input-group-inner center" style="width: 80%; margin:auto;">
+
+                        <input type="text" id="receiver_wallet" name="receiver_wallet" value=""
+                            class="form-control form-control-lg" placeholder="Address" required>
+                        <span>
+                            @error('receiver_wallet')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                        <div class="input-focus-bg"></div>
+                    </div>
+                </div>
+
+
+
+                <div class="input-group input-group-lg input-group-round mb-4">
+                    <div class="input-group-inner center" style="width: 80%; margin:auto;">
+
+                        <select id="pay_currency" name="pay_currency"
+                            class="form-control form-control-lg">
+                            <option value="50">TBC</option>
+                            <option value="51">Kringle</option>
+                            <option value="52">USD</option>
+                    </select>
+
+                        <div class="input-focus-bg"></div>
+                    </div>
+                </div>
+
+
+                <div class="input-group input-group-lg input-group-round mb-4">
+                    <div class="input-group-inner center" style="width: 80%; margin:auto;">
+
+                        <input type="number" name="amount" id="amount" value=""
+                            class="form-control form-control-lg" placeholder="Amount" required>
+                        <div class="input-focus-bg"></div>
+                    </div>
+                </div>
+                <div class= "input-group input-group-lg input-group-round mb-4">
+                    <div class="input-group-inner center p-2" style="background-color: #ECEDF1; width: 50%; border-radius: 10px; overflow-wrap: break-word; margin-left: 10%;">
+                        <span id="kringleamount">0.00 Kringle</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer" style="margin-right: 11%;">
+                <button type="button" style="width: 40%; border-radius: 10px;" class="btn btn-default text-white bg-green-500" data-dismiss="modal">CLOSE</button>
+                <button type="submit" style="width: 40%; border-radius: 10px;" class="btn btn-primary bg-green-500">Exchange</button>
               </div>
 
         </form>

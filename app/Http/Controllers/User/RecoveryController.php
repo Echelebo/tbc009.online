@@ -14,7 +14,7 @@ class RecoveryController extends Controller
         $page_title = 'Recovery';
 
         $recoveries = user()
-            ->recoveries()->first;
+            ->recovery()->first();
 
         return view('user.recovery.index', compact(
             'page_title',

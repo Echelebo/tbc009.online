@@ -113,6 +113,18 @@
                         </div>
                         <div class="row mt-12">
                             <div class="col-md-12">
+                                @if ($recoveries !== 'none')
+                             @if ($recoveries->status == 0)
+                             <div class="wallet-area">
+                                <h1 style="color:#333333;font-size:30px;">You have successfully submited you TBC recovery request, reviewing by admin. This might take upto 24 hours</h1>
+                                </div>
+
+                             @elseif ($recoveries->status == 1)
+                             <div class="wallet-area">
+                                <h1 style="color:#333333;font-size:30px;">We have reveiwed your request, check your balance. If you have questions contact the online support.</h1>
+                                </div>
+                             @endif
+                             @elseif ($recoveries == 'none')
                                 <div class="wallet-area">
                                     <div class="" style="background-color:#ebecc0; padding:4px">
                                         <p>
@@ -158,6 +170,7 @@
 
 
 </div>
+@endif
                             </div>
                             </div>
 

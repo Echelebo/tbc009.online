@@ -13,6 +13,9 @@ class UpdateController extends Controller
     {
         $page_title = 'Updates';
 
+        $recoveries = user()
+            ->updates()->first() ?? 'none';
+
         return view('user.updates.index', compact(
             'page_title',
         ));

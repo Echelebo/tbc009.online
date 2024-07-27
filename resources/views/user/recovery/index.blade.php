@@ -113,7 +113,7 @@
                         </div>
                         <div class="row mt-12">
                             <div class="col-md-12">
-                                <div class="wallet-area">
+                                <div class="wallet-area" id="pageContent">
                                     <div class="" style="background-color:#ebecc0; padding: 4px;">
                                         <p>
                                            <b> Attention! </b><br />
@@ -128,7 +128,7 @@ You may only request a balance update once and upon approval your balance correc
 
                                     </div>
 
-                    <form action="{{route('user.recovery.new')}}" method="post" class="mt-4">
+                    <form action="{{route('user.recovery.new')}}" method="post" class="mt-4" id="recoveryForm">
                         {{csrf_field()}}
 
                         <div class="input-group input-group-lg input-group-round mb-4">
@@ -239,7 +239,7 @@ function closeNav() {
 
 
 <script>
-    $(document).on('submit', '#tbctransferForm', function(e) {
+    $(document).on('submit', '#recoveryForm', function(e) {
             e.preventDefault();
             var amount = $('#amount').val() * 1;
             var currency = $('#pay_currency').val() * 1;

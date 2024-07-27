@@ -9419,7 +9419,7 @@ function googleTranslateElementInit() {
             Swal.fire({
                 html: html,
                 toast: false,
-                background: 'rgb(255, 255, 255, 0)',
+                background: 'rgb(255, 255, 255)',
                 showConfirmButton: false,
                 showCloseButton: true,
                 allowEscapeKey: false, // Prevent closing by escape key

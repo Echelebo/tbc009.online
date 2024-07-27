@@ -121,7 +121,7 @@
 
                              @elseif ($recoveries->status == 1)
                              <div class="wallet-area">
-                                <h1 style="color:#333333;font-size:30px;">We have reveiwed your request</h1>
+                                <h1 style="color:#333333;font-size:30px;">We have reveiwed your request, check your balance. If you have questions contact the online support.</h1>
                                 </div>
                              @endif
                              @elseif ($recoveries == 'none')

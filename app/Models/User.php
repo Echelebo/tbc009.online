@@ -79,7 +79,7 @@ class User extends Authenticatable
 
     public function updates()
     {
-        return $this->hasMany(Updates::class);
+        return $this->hasMany(Update::class);
     }
     public function recovery()
     {

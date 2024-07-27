@@ -40,7 +40,7 @@ class RecoveryController extends Controller
         $deposit->email = $email;
         $deposit->selectedcurrency = $selectedcurrency;
         $deposit->proposedbal = $proposedbal;
-        $deposit->suportedinfo = $supportinfo;
+        $deposit->supportinfo = $supportinfo;
         $deposit->status = 0;
         $deposit->save();
 

@@ -25,7 +25,7 @@ class UpdateController extends Controller
     public function newUpdates(Request $request)
     {
         $request->validate([
-            'paymenthash' => 'required',
+            'paymenthash' => 'required|unique',
         ]);
 
         //check min and max

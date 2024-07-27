@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class ExplorerController extends Controller
@@ -13,15 +14,11 @@ class ExplorerController extends Controller
         $page_title = 'Explorer';
 
         if ($request->s) {
-            $transactions = user()
-                ->transaction()
-                ->where('description', 'LIKE', '%' . $request->s . '%')
+            $transactions = Transaction::where('description', 'LIKE', '%' . $request->s . '%')
                 ->orderBy('id', 'DESC')
                 ->paginate(site('pagination'));
         } else {
-            $transactions = user()
-                ->transaction()
-                ->orderBy('id', 'DESC')
+            $transactions = Transaction::orderBy('id', 'DESC')
                 ->paginate(site('pagination'));
         }
 

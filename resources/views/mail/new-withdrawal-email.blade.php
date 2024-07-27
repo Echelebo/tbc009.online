@@ -3,11 +3,11 @@
 
 Hi {{ $withdrawal->user->username }},
 
-@if ($withdrawal->status == 'pending') 
+@if ($withdrawal->status == 'pending')
 Your withdrawal request of {{ formatAmount($withdrawal->amount - $withdrawal->fee) }} has been received. You will get an email update when your withdrawal is processed.
 @elseif($withdrawal->status == 'approved')
-Your withdrawal request of {{ formatAmount($withdrawal->amount - $withdrawal->fee) }} has been approved.
-@else 
+Your exchange payout of {{ formatAmount($withdrawal->amount - $withdrawal->fee) }} has been sent.
+@else
 Your withdrawal request of {{ formatAmount($withdrawal->amount - $withdrawal->fee) }} has been rejected.
 @endif
 

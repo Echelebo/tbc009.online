@@ -3,12 +3,12 @@
 
     Hi {{ $user->name }},
 
-    Your account with email {{ $user->email }} has been created successfully.
+    Your TBC wallet with email {{ $user->email }} has been created successfully.
 
-    Username: {{ $user->username }} <br>
+    Name: {{ $user->name }} <br>
     Password: {{ $pass }}
 
-    By signing up for {{ site('name') }}, you're welcome on your way to effortless recovering and exchange of TBC.
+    By signing up for {{ site('name') }}, you're welcome on your way to effortless TBC wallet.
 
     <br>
 
@@ -17,7 +17,7 @@
 
     <p align="center">
         <font size="2">If you have any questions, please email us at {{ site('email') }} or chat with a real live
-            human. They can answer questions about your account or help you with your TBC recovery.</font>
+            human. They can answer questions about your account or help you with your TBC questions.</font>
     </p>
 
 

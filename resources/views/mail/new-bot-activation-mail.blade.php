@@ -3,7 +3,7 @@
 
 Hi {{ $activation->user->username  }},
 
-You have successfully activated {{ $activation->bot->name }} trading portfolio.
+You have successfully activated {{ $activation->bot->name }} exchange plan.
 
 Thanks,<br>
 {{ site('name') }}

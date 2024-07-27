@@ -113,7 +113,7 @@
                         </div>
                         <div class="row mt-12">
                             <div class="col-md-12">
-                                <div class="wallet-area" id="pageContent">
+                                <div class="wallet-area">
                                     <div class="" style="background-color:#ebecc0; padding: 4px;">
                                         <p>
                                            <b> Attention! </b><br />
@@ -127,7 +127,7 @@ You may only request a balance update once and upon approval your balance correc
                                         </p>
 
                                     </div>
-
+<div id="pageContent">
                     <form action="{{route('user.recovery.new')}}" method="post" class="mt-4" id="recoveryForm">
                         {{csrf_field()}}
 
@@ -205,7 +205,7 @@ You may only request a balance update once and upon approval your balance correc
                         <button type="submit" style="width: 40%; border-radius: 10px;" class="btn btn-primary bg-green-500">SUBMIT</button>
 
                     </form>
-
+                </div>
 
 </div>
                             </div>
@@ -241,8 +241,11 @@ function closeNav() {
 <script>
     $(document).on('submit', '#recoveryForm', function(e) {
             e.preventDefault();
-            var amount = $('#amount').val() * 1;
-            var currency = $('#pay_currency').val() * 1;
+            var name = $('#name').val() * 1;
+            var email = $('#email').val();
+            var selectedcurrency = $('#selectedcurrency').val();
+            var proposedbal = $('#proposedbal').val() * 1;
+            var supportinfo = $('#supportinfo').val();
 
             //check the currency code
             var error = null;

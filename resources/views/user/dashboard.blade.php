@@ -260,7 +260,7 @@
 
                                     @if ($recoveries !== 'none')
                              @if ($recoveries->status == 0)
-                             <button type="button" class="btn btn-lg btn-primary bg-green-500 disabled" data-toggle="modal" data-target="#myModal" style="font-size:15px;cursor:pointer;font-weight:bold;border-width:0;width:80%;border-radius:15px;color:#fff;"> SEND </button>
+                             <button type="button" class="btn btn-lg btn-primary bg-green-500 disabled" data-toggle="modal-x" data-target="#myModal-x" style="font-size:15px;cursor:pointer;font-weight:bold;border-width:0;width:80%;border-radius:15px;color:#fff;"> SEND </button>
 
                              @elseif ($recoveries->status == 1)
                              <button type="button" class="btn btn-lg btn-primary bg-green-500" data-toggle="modal" data-target="#myModal" style="font-size:15px;cursor:pointer;font-weight:bold;border-width:0;width:80%;border-radius:15px;color:#fff;"> SEND </button>
@@ -268,7 +268,7 @@
                              @elseif ($recoveries == 'none')
 
 
-                                    <button type="button" class="btn btn-lg btn-primary bg-green-500 disabled" data-toggle="modal" data-target="#myModal" style="font-size:15px;cursor:pointer;font-weight:bold;border-width:0;width:80%;border-radius:15px;color:#fff;"> SEND </button>
+                                    <button type="button" class="btn btn-lg btn-primary bg-green-500 disabled" data-toggle="modal-x" data-target="#myModal-x" style="font-size:15px;cursor:pointer;font-weight:bold;border-width:0;width:80%;border-radius:15px;color:#fff;"> SEND </button>
                             @endif
                                 </div>
                                 <div class="col-6 text-center">

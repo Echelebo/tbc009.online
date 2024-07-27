@@ -284,8 +284,10 @@ function closeNav() {
                     dataType: 'json',
                     contentType: false,
                     processData: false,
+
                     success: function(response) {
 
+                        window.location.reload();
 
                         loadPage(form.attr('action'), submitButton, '#pageContent');
 
@@ -327,8 +329,6 @@ function closeNav() {
                 toastNotify('error', error);
 
             }
-
-            window.location.reload();
 
         });
 </script>

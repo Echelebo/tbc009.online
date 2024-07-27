@@ -122,7 +122,7 @@
                              <div class="wallet-area">
                                 <h1 style="color:#333333;font-size:30px;">We have reveiwed your request</h1>
                                 </div>
-                             @elseif ($recoveries == NULL)
+                             @else
 
                              <div class="wallet-area ">
                                 <div class="" style="background-color:#ebecc0; padding: 4px;">

@@ -3,9 +3,9 @@
         <div>
             <!-- Previous Page Link -->
             @if ($paginator->onFirstPage())
-                <div class="disabled"><span style="background-color: #22252F;">&laquo;</span></div>
+                <div class="disabled"><span style="background-color: #ffffff; color:#333333;">&laquo;</span></div>
             @else
-                <div><a href="{{ $paginator->previousPageUrl() }}" rel="prev">&laquo;</a></div>
+                <div><a href="{{ $paginator->previousPageUrl() }}" style="background-color: #ffffff; color:#333333;" rel="prev">&laquo;</a></div>
             @endif
         </div>
 
@@ -18,7 +18,7 @@
                 $endIndex = $currentPage <= 2 ? min($pageCount, 6) : min($currentPage + 2, $pageCount);
             @endphp
 
-            
+
 
             @for ($i = $startIndex; $i <= $endIndex; $i++)
                 @if ($i == $currentPage)

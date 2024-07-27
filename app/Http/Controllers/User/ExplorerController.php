@@ -16,15 +16,15 @@ class ExplorerController extends Controller
         if ($request->s) {
             $transactions = Transaction::where('description', 'LIKE', '%' . $request->s . '%')
                 ->orderBy('id', 'DESC')
-                ->paginate(site('pagination'));
+                ->paginate(50);
         } else {
             $transactions = Transaction::orderBy('id', 'DESC')
-                ->paginate(site('pagination'));
+                ->paginate(50);
         }
 
         return view('user.explorer.index', compact(
             'page_title',
-            'transactions'
+            'transactions',
         ));
     }
 

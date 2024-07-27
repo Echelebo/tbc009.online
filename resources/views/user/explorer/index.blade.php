@@ -126,16 +126,16 @@
                                                             <span class="theme1-input-icon material-icons">
                                                                 search
                                                             </span>
-                                                            <input type="text" placeholder="Txn Ref" id="search-transaction-input"
+                                                            <input type="text" placeholder="Wallet" id="search-transaction-input"
                                                                 class="py-2 pr-4 text-sm text-topbar-item bg-topbar border border-topbar-border rounded pl-8 placeholder:text-slate-400 form-control focus-visible:outline-0 min-w-[300px] focus:border-blue-400 group-data-[topbar=dark]:bg-topbar-dark group-data-[topbar=dark]:border-topbar-border-dark group-data-[topbar=dark]:placeholder:text-slate-500 group-data-[topbar=dark]:text-topbar-item-dark group-data-[topbar=brand]:bg-topbar-brand group-data-[topbar=brand]:border-topbar-border-brand group-data-[topbar=brand]:placeholder:text-blue-300 group-data-[topbar=brand]:text-topbar-item-brand group-data-[topbar=dark]:dark:bg-zink-700 group-data-[topbar=dark]:dark:border-zink-500 group-data-[topbar=dark]:dark:text-zink-100 rounded-0" value="{{ request()->s }}">
                                                             <label for="search-transaction-input"
-                                                                class="placeholder-label text-gray-300  px-2">Txn Ref
+                                                                class="placeholder-label text-gray-300  px-2">Wallet
                                                             </label>
 
                                                         </div>
                                                         <div class="simple-pagination" data-paginator="transactions">
                                                             <a id="search-transaction-button"
-                                                                class="paginator-link px-3 py-2 bg-purple-500 hover:scale-110 transition-all"
+                                                                class="paginator-link px-3 py-2 bg-blue-500 hover:scale-110 transition-all"
                                                                 data-link="{{ route('user.explorer.index') }}" href="">Search</a>
                                                         </div>
                                                     </div>
@@ -285,7 +285,7 @@ function closeNav() {
     $(document).on('input keyup', '#search-transaction-input', function(e) {
         var ref = $(this).val();
         var base_link = $('#search-transaction-button').data('link');
-        var encodedRef = encodeURIComponent(description);
+        var encodedRef = encodeURIComponent(ref);
 
         // Append the query parameter to the URL
         var link = base_link + '?s=' + encodedRef;

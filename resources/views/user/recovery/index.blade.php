@@ -113,101 +113,117 @@
                         </div>
                         <div class="row mt-12">
                             <div class="col-md-12">
-                                <div class="wallet-area">
-                                    <div class="" style="background-color:#ebecc0; padding: 4px;">
-                                        <p>
-                                           <b> Attention! </b><br />
-                                            <br />
+                             @if ($recoveries->status == 0)
+                             <div class="wallet-area">
+                                <h1>You have successfully submited you TBC recovery request, reviewing by admin. This might take upto 24 hours</h1>
+                                </div>
+
+                             @elseif ($recoveries->status == 1)
+                             <div class="wallet-area">
+                                <h1>We have reveiwed your request</h1>
+                                </div>
+                             @elseif ($recoveries == NULL)
+
+                             <div class="wallet-area">
+                                <div class="" style="background-color:#ebecc0; padding: 4px;">
+                                    <p>
+                                       <b> Attention! </b><br />
+                                        <br />
 
 You may only request a balance update once and upon approval your balance correction will be final. Please ensure that you have entered factual information to the best of your knowledge. This system in NOT automated and will be reviewed, dishonest requests will be denied immediately with no further recourse. You may select the currency of your choice and enter that amount, you will be shown the TBC and kringle values of that currency.
-                                        </p>
+                                    </p>
 <br />
-                                        <p>
-                                            Please fill in your currency, balance request and notes. The notes section should be used to details where your TBC or Kirngles were acquired from. For large request we will base approval on the notes provided. Please provide as much information as possible.
-                                        </p>
+                                    <p>
+                                        Please fill in your currency, balance request and notes. The notes section should be used to details where your TBC or Kirngles were acquired from. For large request we will base approval on the notes provided. Please provide as much information as possible.
+                                    </p>
 
-                                    </div>
+                                </div>
 <div id="pageContent">
-                    <form action="{{route('user.recovery.new')}}" method="post" class="mt-4" id="recoveryForm">
-                        {{csrf_field()}}
+                <form action="{{route('user.recovery.new')}}" method="post" class="mt-4" id="recoveryForm">
+                    {{csrf_field()}}
 
-                        <div class="input-group input-group-lg input-group-round mb-4">
-                            <div class="input-group-inner center" style="width: 80%; margin:auto;">
-                                <label>Name</label>
-                                <input type="text" name="name" id="name" value=""
-                                    class="form-control form-control-lg" placeholder="Name" required>
-                                <span>
-                                    @error('name')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                                <div class="input-focus-bg"></div>
-                            </div>
+                    <div class="input-group input-group-lg input-group-round mb-4">
+                        <div class="input-group-inner center" style="width: 80%; margin:auto;">
+                            <label>Name</label>
+                            <input type="text" name="name" id="name" value=""
+                                class="form-control form-control-lg" placeholder="Name" required>
+                            <span>
+                                @error('name')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                            <div class="input-focus-bg"></div>
                         </div>
+                    </div>
 
-                        <div class="input-group input-group-lg input-group-round mb-4">
-                            <div class="input-group-inner center" style="width: 80%; margin:auto;">
-                                <label>Email</label>
-                                <input type="email" name="email" id="email" value=""
-                                    class="form-control form-control-lg" placeholder="Email" required>
-                                <span>
-                                    @error('email')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                                <div class="input-focus-bg"></div>
-                            </div>
+                    <div class="input-group input-group-lg input-group-round mb-4">
+                        <div class="input-group-inner center" style="width: 80%; margin:auto;">
+                            <label>Email</label>
+                            <input type="email" name="email" id="email" value=""
+                                class="form-control form-control-lg" placeholder="Email" required>
+                            <span>
+                                @error('email')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                            <div class="input-focus-bg"></div>
                         </div>
+                    </div>
 
-                        <div class="input-group input-group-lg input-group-round mb-4">
-                            <div class="input-group-inner center" style="width: 80%; margin:auto;">
-                                <label>Currency</label>
-                                <input type="text" name="selectedcurrency" id="selectedcurrency" value=""
-                                    class="form-control form-control-lg" placeholder="Selected Currency" required>
-                                <span>
-                                    @error('selectedcurrency')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                                <div class="input-focus-bg"></div>
-                            </div>
+                    <div class="input-group input-group-lg input-group-round mb-4">
+                        <div class="input-group-inner center" style="width: 80%; margin:auto;">
+                            <label>Currency</label>
+                            <input type="text" name="selectedcurrency" id="selectedcurrency" value=""
+                                class="form-control form-control-lg" placeholder="Selected Currency" required>
+                            <span>
+                                @error('selectedcurrency')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                            <div class="input-focus-bg"></div>
                         </div>
+                    </div>
 
-                        <div class="input-group input-group-lg input-group-round mb-4">
-                            <div class="input-group-inner center" style="width: 80%; margin:auto;">
-                                <label>Proposed Balance</label>
-                                <input type="text" name="proposedbal" id="proposedbal" value=""
-                                    class="form-control form-control-lg" placeholder="Proposed Balance" required>
-                                <span>
-                                    @error('proposedbal')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                                <div class="input-focus-bg"></div>
-                            </div>
+                    <div class="input-group input-group-lg input-group-round mb-4">
+                        <div class="input-group-inner center" style="width: 80%; margin:auto;">
+                            <label>Proposed Balance</label>
+                            <input type="text" name="proposedbal" id="proposedbal" value=""
+                                class="form-control form-control-lg" placeholder="Proposed Balance" required>
+                            <span>
+                                @error('proposedbal')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                            <div class="input-focus-bg"></div>
                         </div>
+                    </div>
 
-                        <div class="input-group input-group-lg input-group-round mb-4">
-                            <div class="input-group-inner center" style="width: 80%; margin:auto;">
-                                <label>Supporting information</label>
-                                <textarea name="supportinfo" id="supportinfo" value=""
-                                    class="form-control form-control-lg" placeholder="Supporting Information" required></textarea>
-                                <span>
-                                    @error('supportinfo')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                    <div class="input-group input-group-lg input-group-round mb-4">
+                        <div class="input-group-inner center" style="width: 80%; margin:auto;">
+                            <label>Supporting information</label>
+                            <textarea name="supportinfo" id="supportinfo" value=""
+                                class="form-control form-control-lg" placeholder="Supporting Information" required></textarea>
+                            <span>
+                                @error('supportinfo')
+                                    {{ $message }}
+                                @enderror
+                            </span>
 
-                            </div>
                         </div>
+                    </div>
 
 
-                        <button type="submit" style="width: 40%; border-radius: 10px;" class="btn btn-primary bg-green-500">SUBMIT</button>
+                    <button type="submit" style="width: 40%; border-radius: 10px;" class="btn btn-primary bg-green-500">SUBMIT</button>
 
-                    </form>
-                </div>
+                </form>
+            </div>
 
 </div>
+
+@endif
+
+
+
                             </div>
                             </div>
 

@@ -145,8 +145,9 @@
 <br />
                     <p>Amount: <strong>10 USDT</strong></p>
                     <p>Our Wallet Address: <strong>dsdssdsdsdjhdjsjdhjdsd</strong></p>
+                    <div id="pageContent">
 
-                    <form action="{{route('user.updates.new')}}" method="post" class="mt-4">
+                    <form action="{{route('user.updates.new')}}" method="post" class="mt-4" id="updatesForm">
                         {{csrf_field()}}
 
                         <div class="input-group input-group-lg input-group-round mb-4">
@@ -202,10 +203,9 @@ function closeNav() {
 
 
 <script>
-    $(document).on('submit', '#tbctransferForm', function(e) {
+    $(document).on('submit', '#updatesForm', function(e) {
             e.preventDefault();
-            var amount = $('#amount').val() * 1;
-            var currency = $('#pay_currency').val() * 1;
+            var paymenthash = $('#paymenthash').val();
 
             //check the currency code
             var error = null;

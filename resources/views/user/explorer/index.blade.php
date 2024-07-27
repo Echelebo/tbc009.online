@@ -161,15 +161,15 @@
 
 
                                                                         </div>
-                                                                        <div class="w-full flex items-center  p-2 rounded-lg border border-slate-800 hover:border-slate-600 cursor-pointer simple-pagination"
-                                data-paginator="transactions">
-                                {{ $transactions->links('paginations.simple') }}
-                            </div>
+
                                                                         @empty
 
                                             <div></div>
                                             @endforelse
-
+                                            <div class="w-full flex items-center  p-2 rounded-lg border border-slate-800 hover:border-slate-600 cursor-pointer simple-pagination"
+                                            data-paginator="transactions">
+                                            {{ $transactions->links('paginations.simple') }}
+                                        </div>
 
 
                                                                         </div>

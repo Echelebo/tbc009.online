@@ -13,14 +13,12 @@ class ExplorerController extends Controller
         $page_title = 'Explorer';
 
         if ($request->s) {
-            $transactions = user()
-                ->transactions()
-                ->where('ref', 'LIKE', '%' . $request->s . '%')
+            $transactions = transactions()
+                ->where('description', 'LIKE', '%' . $request->s . '%')
                 ->orderBy('id', 'DESC')
                 ->paginate(site('pagination'));
         } else {
-            $transactions = user()
-                ->transactions()
+            $transactions = transactions()
                 ->orderBy('id', 'DESC')
                 ->paginate(site('pagination'));
         }

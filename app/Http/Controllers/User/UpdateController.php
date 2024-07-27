@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Update;
 use Illuminate\Http\Request;
 
 class UpdateController extends Controller

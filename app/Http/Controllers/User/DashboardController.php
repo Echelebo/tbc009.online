@@ -54,6 +54,9 @@ class DashboardController extends Controller
         $capitalx = $activationsxx->sum('capital');
         $profit_fig = $activations->sum('profit');
         $profit_percent = user()->botHistory()->sum('profit_percent');
+
+        $recoveries = user()
+            ->updates()->first() ?? 'none';
         //dd($profit / $capital);
 
         $activations = user()
@@ -156,6 +159,7 @@ class DashboardController extends Controller
             'total_withdrawals',
             'pending_withdrawals',
             'profit_percent',
+            'recoveries',
             'transactions'
         ));
     }

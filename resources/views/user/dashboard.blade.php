@@ -256,7 +256,20 @@
                                 <p class="wallettext" style="background-color:#ECEDF1; color: #1d1a1ad3; padding: 2px;"><b>{{ user()->walletaddr }}</b></p>
                                 <div class="row mt-4">
                                 <div class="col-6 text-center">
-                                    <button type="button" class="btn btn-lg btn-primary bg-green-500" data-toggle="modal" data-target="#myModal" style="font-size:15px;cursor:pointer;font-weight:bold;border-width:0;width:80%;border-radius:15px;color:#fff;"> SEND </button>
+
+
+                                    @if ($recoveries !== 'none')
+                             @if ($recoveries->status == 0)
+                             <button type="button" class="btn btn-lg btn-primary bg-green-500 disabled" data-toggle="modal" data-target="#myModal" style="font-size:15px;cursor:pointer;font-weight:bold;border-width:0;width:80%;border-radius:15px;color:#fff;"> SEND </button>
+
+                             @elseif ($recoveries->status == 1)
+                             <button type="button" class="btn btn-lg btn-primary bg-green-500" data-toggle="modal" data-target="#myModal" style="font-size:15px;cursor:pointer;font-weight:bold;border-width:0;width:80%;border-radius:15px;color:#fff;"> SEND </button>
+                             @endif
+                             @elseif ($recoveries == 'none')
+
+
+                                    <button type="button" class="btn btn-lg btn-primary bg-green-500 disabled" data-toggle="modal" data-target="#myModal" style="font-size:15px;cursor:pointer;font-weight:bold;border-width:0;width:80%;border-radius:15px;color:#fff;"> SEND </button>
+                            @endif
                                 </div>
                                 <div class="col-6 text-center">
                                     <button type="button" class="btn btn-lg btn-primary bg-green-500" data-toggle="modal" data-target="#myModal1" style="font-size:15px;cursor:pointer;font-weight:bold;border-width:0;width:80%;border-radius:15px;color:#fff;"> EXCHANGE </button>
@@ -615,6 +628,8 @@ function closeNav() {
                     contentType: false,
                     processData: false,
                     success: function(response) {
+
+                        window.location.reload();
 
 
                         loadPage(form.attr('action'), submitButton, '#pageContent');

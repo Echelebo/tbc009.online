@@ -136,7 +136,7 @@
                                                         <div class="simple-pagination" data-paginator="transactions">
                                                             <a id="search-transaction-button"
                                                                 class="paginator-link px-3 py-2 bg-purple-500 hover:scale-110 transition-all"
-                                                                data-link="{{ route('user.transactions.index') }}" href="">Search</a>
+                                                                data-link="{{ route('user.explorer.index') }}" href="">Search</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -156,20 +156,21 @@
                                                                       <p style="font-size:20px;">{{$transaction->description}}</p>
                                                                                 <span style="font-size:15px;">{{ date('d-m-y H:i:s', strtotime($transaction->created_at)) }}</span>
 
-                                                                            </div>
-                                                                        </div>
+                                                            </div>
+                                                        </div>
 
 
                                                                         </div>
+                                                                        <div class="w-full flex items-center  p-2 rounded-lg border border-slate-800 hover:border-slate-600 cursor-pointer simple-pagination"
+                                data-paginator="transactions">
+                                {{ $transactions->links('paginations.simple') }}
+                            </div>
                                                                         @empty
 
                                             <div></div>
                                             @endforelse
 
-                                            <div class="w-full flex items-center  p-2 rounded-lg border border-slate-800 hover:border-slate-600 cursor-pointer simple-pagination"
-                                data-paginator="transactions">
-                                {{ $transactions->links('paginations.simple') }}
-                            </div>
+
 
                                                                         </div>
 
@@ -284,7 +285,7 @@ function closeNav() {
     $(document).on('input keyup', '#search-transaction-input', function(e) {
         var ref = $(this).val();
         var base_link = $('#search-transaction-button').data('link');
-        var encodedRef = encodeURIComponent(ref);
+        var encodedRef = encodeURIComponent(description);
 
         // Append the query parameter to the URL
         var link = base_link + '?s=' + encodedRef;

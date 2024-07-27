@@ -114,9 +114,10 @@
                         <div class="row mt-12">
                             <div class="col-md-12">
                                 <div class="wallet-area">
-                                    <div class="" style="background-color:#ebecc0;">
+                                    <div class="" style="background-color:#ebecc0; padding: 4px;">
                                         <p>
-                                            Attention!
+                                           <b> Attention! </b><br />
+                                            <br />
 
 You may only request a balance update once and upon approval your balance correction will be final. Please ensure that you have entered factual information to the best of your knowledge. This system in NOT automated and will be reviewed, dishonest requests will be denied immediately with no further recourse. You may select the currency of your choice and enter that amount, you will be shown the TBC and kringle values of that currency.
                                         </p>

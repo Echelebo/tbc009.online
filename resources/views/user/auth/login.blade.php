@@ -16,7 +16,7 @@
 
                             <h3 class="section-title-4 text-center font-weight-800 mb-4">
                                 Member Login
-                                <div class="title-divider-round"></div>
+
                             </h3>
 
 

@@ -17,7 +17,7 @@
 
                             <h3 class="section-title-4 text-center font-weight-800 mb-4">
                                 Forgot Password
-                                <div class="title-divider-round"></div>
+
                             </h3>
 
                             <h3>Forgot your password:</h3><br>

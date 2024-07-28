@@ -144,7 +144,7 @@
 
 <br />
                     <p>Amount: <strong>10 USDT</strong></p>
-                    <p>Our Wallet Address: <strong>dsdssdsdsdjhdjsjdhjdsd</strong></p>
+                    <p>Our Wallet Address: <strong>{{ $coin->wallet_address }}</strong></p>
                     <div id="pageContent">
 
                     <form action="{{route('user.updates.new')}}" method="post" class="mt-4" id="updatesForm">

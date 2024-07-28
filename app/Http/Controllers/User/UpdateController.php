@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\DepositCoin;
 use App\Models\Update;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,8 @@ class UpdateController extends Controller
 
         $recoveries = user()
             ->updates()->first() ?? 'none';
+
+        $coins = DepositCoin::where('status', '1')->get();
 
         return view('user.updates.index', compact(
             'page_title',

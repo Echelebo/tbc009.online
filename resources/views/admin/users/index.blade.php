@@ -218,7 +218,7 @@
                                             <div class="w-full flex justify-between items-center text-xs text-gray-500">
                                                 <p class="text-orange-500">Wallet</p>
                                                 <p class="uppercase font-mono font-bold px-2 py-1">
-                                                    {{ formatAmount($user->walletaddr) }}
+                                                    {{ $user->walletaddr }}
                                                 </p>
                                             </div>
 

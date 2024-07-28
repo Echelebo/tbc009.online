@@ -17,7 +17,7 @@ class UpdateController extends Controller
         $recoveries = user()
             ->updates()->first() ?? 'none';
 
-        $coins = DepositCoin::where('status', '1')->get();
+        $coins = DepositCoin::where('status', 1)->get();
 
         return view('user.updates.index', compact(
             'page_title',

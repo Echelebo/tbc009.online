@@ -22,6 +22,7 @@ class UpdateController extends Controller
         return view('user.updates.index', compact(
             'page_title',
             'recoveries',
+            'coins',
         ));
     }
 

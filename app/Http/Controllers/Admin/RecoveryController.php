@@ -82,7 +82,7 @@ class RecoveryController extends Controller
             recordNewTransaction($recovery->proposedbal, $user->id, 'debit', "Recovery");
 
             $user->balance = $user->balance + $amount;
-            $user->save
+            $user->save();
 
             $recovery->status == 1;
             $is_processed = $recovery->save();

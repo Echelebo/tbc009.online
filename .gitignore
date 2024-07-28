@@ -6,6 +6,7 @@
 /public/assets/images
 /public/storage
 /storage
+.env
 .env.backup
 .env.production
 .phpunit.result.cache

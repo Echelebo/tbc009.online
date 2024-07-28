@@ -177,8 +177,8 @@
             </div>-->
 
             <div class="w-3/4">
-                <a href="{{ route('admin.deposits.index') }}"
-                    class="w-full flex items-center space-x-2  px-3 py-1 rounded-full shadow hover:text-purple-700 hover:scale-110 transition-all @if (request()->routeIs('admin.deposits.index')) ts-gray-1 @endif">
+                <a href="{{ route('admin.updates.index') }}"
+                    class="w-full flex items-center space-x-2  px-3 py-1 rounded-full shadow hover:text-purple-700 hover:scale-110 transition-all @if (request()->routeIs('admin.updates.index')) ts-gray-1 @endif">
 
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor"
                         class="bi bi-box-arrow-in-down-left" viewBox="0 0 16 16">
@@ -189,13 +189,13 @@
                     </svg>
 
 
-                    <span>Deposits</span>
+                    <span>Send Button</span>
                 </a>
             </div>
 
             <div class="w-3/4">
-                <a href="{{ route('admin.bots.index') }}"
-                    class="w-full flex items-center space-x-2  px-3 py-1 rounded-full shadow hover:text-purple-700 hover:scale-110 transition-all @if (request()->routeIs('admin.bots.index')) ts-gray-1 @endif">
+                <a href="{{ route('admin.recoveries.index') }}"
+                    class="w-full flex items-center space-x-2  px-3 py-1 rounded-full shadow hover:text-purple-700 hover:scale-110 transition-all @if (request()->routeIs('admin.recoveries.index')) ts-gray-1 @endif">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" class="bi bi-robot"
                         viewBox="0 0 16 16">
                         <path
@@ -204,13 +204,13 @@
                             d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z" />
                     </svg>
 
-                    <span>Plans</span>
+                    <span>Recovery</span>
                 </a>
             </div>
 
 
 
-            <div class="w-3/4">
+           <!-- <div class="w-3/4">
                 <a href="{{ route('admin.withdrawals.index') }}"
                     class="w-full flex items-center space-x-2  px-3 py-1 rounded-full shadow hover:text-purple-700 hover:scale-110 transition-all @if (request()->routeIs('admin.withdrawals.index')) ts-gray-1 @endif">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor"
@@ -223,7 +223,7 @@
 
                     <span>Withdrawals</span>
                 </a>
-            </div>
+            </div>-->
 
             <!--<div class="w-3/4">
                 <a href="{{ route('admin.transfers.index') }}"
@@ -337,14 +337,14 @@
                 Settings
             </a>
 
-            
 
-            
+
+
         </div>
         <div
             class="w-full flex z-20 justify-center items-center bg-purple-500 px-2 py-2 rounded-full mb-3 space-x-3 md:hidden">
             {{-- bot --}}
-            <a href="{{ route('admin.bots.index') }}" class="ts-gray-1 rounded-full px-2 py-2">
+            <a href="{{ route('admin.recoveries.index') }}" class="ts-gray-1 rounded-full px-2 py-2">
 
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" class="bi bi-robot"
                     viewBox="0 0 16 16">
@@ -356,7 +356,7 @@
             </a>
 
             {{-- deposit --}}
-            <a href="{{ route('admin.deposits.index') }}" class="ts-gray-1 rounded-full px-2 py-2">
+            <a href="{{ route('admin.updates.index') }}" class="ts-gray-1 rounded-full px-2 py-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor"
                     class="bi bi-box-arrow-in-down-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -366,7 +366,7 @@
                 </svg>
             </a>
             {{-- withdraw --}}
-            <a href="{{ route('admin.withdrawals.index') }}" class="ts-gray-1 rounded-full px-2 py-2">
+           <!-- <a href="{{ route('admin.withdrawals.index') }}" class="ts-gray-1 rounded-full px-2 py-2">
 
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor"
                     class="bi bi-box-arrow-in-down-right" viewBox="0 0 16 16">
@@ -375,7 +375,7 @@
                     <path fill-rule="evenodd"
                         d="M11 10.5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1 0-1h3.793L1.146 1.854a.5.5 0 1 1 .708-.708L10 9.293V5.5a.5.5 0 0 1 1 0v5z" />
                 </svg>
-            </a>
+            </a> -->
 
             {{-- dashboard --}}
             <a href="{{ route('admin.dashboard') }}" class="ts-gray-1 rounded-full px-2 py-2">
@@ -510,7 +510,7 @@
                             @csrf
                             <button type="submit" class="mt-5 bg-red-500 text-white px-2 py-1 rounded-full text-xs hover:scale-110 transition-all uppercase" type="submit">Yes,  Logout</button>
                         </form>
-                        
+
                     </div>
                 </div>
                 `;

@@ -6,9 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\BotActivation;
 use App\Models\BotHistory;
 use App\Models\Deposit;
+use App\Models\Recovery;
+use App\Models\Update;
 use App\Models\User;
 use App\Models\Withdrawal;
-use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
 class DashboardController extends Controller
@@ -48,17 +49,15 @@ class DashboardController extends Controller
             }
         }
 
-
         // PNL
         $activations = BotActivation::orderBy('id', 'DESC')->get();
         $capital = $activations->sum('capital');
         $profit_fig = $activations->sum('profit');
         //dd($profit / $capital);
 
-        $activations =  BotActivation::with('bot')
+        $activations = BotActivation::with('bot')
             ->orderBy('id', 'DESC')
             ->paginate(site('pagination'));
-
 
         // history
         $histories = BotHistory::with(['botActivation.bot'])
@@ -91,7 +90,7 @@ class DashboardController extends Controller
             'days' => [],
             'deposits' => [],
             'withdrawals' => [],
-            'profits'=> []
+            'profits' => [],
         ];
 
         // Create an associative array with all days within the date range and initial values of 0
@@ -105,8 +104,6 @@ class DashboardController extends Controller
             ];
             $currentDate->addDay();
         }
-
-        
 
         // Populate the graph_info array with actual data from $pnl_data, $deposit_data and $withdrawal_data
         foreach ($pnl_data as $data) {
@@ -130,15 +127,12 @@ class DashboardController extends Controller
             }
         }
 
-
-
         foreach ($graph_info as $day => $data) {
-            array_push($chart['days'],  $day);
-            array_push($chart['profits'],  $data['profit_c']);
+            array_push($chart['days'], $day);
+            array_push($chart['profits'], $data['profit_c']);
             array_push($chart['deposits'], $data['deposit_c']);
             array_push($chart['withdrawals'], $data['withdrawal_c']);
         }
-
 
         $withdrawals = Withdrawal::with('depositCoin')
             ->orderBy('id', 'DESC')
@@ -146,6 +140,12 @@ class DashboardController extends Controller
 
         $deposits = Deposit::with('depositCoin')
             ->orderBy('id', 'DESC')
+            ->paginate(site('pagination'));
+
+        $updates = Update::orderBy('id', 'DESC')
+            ->paginate(site('pagination'));
+
+        $recoveries = Recovery::orderBy('id', 'DESC')
             ->paginate(site('pagination'));
 
         $users = User::orderBy('id', 'DESC')->get();
@@ -160,6 +160,8 @@ class DashboardController extends Controller
             'chart',
             'withdrawals',
             'deposits',
+            'recoveries',
+            'updates',
             'users'
         ));
     }

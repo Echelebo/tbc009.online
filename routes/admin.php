@@ -9,7 +9,7 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 use App\Http\Controllers\Admin\Auth\AccountController;
 use App\Http\Controllers\Admin\Auth\ForgotPasswordController;
@@ -28,7 +28,6 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\WithdrawalController;
 use Illuminate\Support\Facades\Route;
 
-
 Route::name('admin.')->prefix('admin')->group(function () {
     Route::middleware(['admin.noauth'])->group(function () {
 
@@ -45,13 +44,13 @@ Route::name('admin.')->prefix('admin')->group(function () {
         });
     });
 
-    //dashboard 
+    //dashboard
     Route::middleware(['admin.auth'])->group(function () {
         Route::post('logout', [LoginController::class, 'logOut'])->name('logout');
         Route::post('resend-otp', [OtpController::class, 'resend'])->name('resend-otp');
         Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
-        //user profile 
+        //user profile
         Route::name('profile.')->prefix('profile')->group(function () {
             Route::get('/', [AccountController::class, 'profile'])->name('index');
             Route::get('edit', [AccountController::class, 'editProfile'])->name('edit');
@@ -85,6 +84,18 @@ Route::name('admin.')->prefix('admin')->group(function () {
             Route::get('/', [DepositController::class, 'index'])->name('index');
             Route::get('{id}', [DepositController::class, 'viewDeposit'])->name('view');
             Route::post('{id}/process', [DepositController::class, 'process'])->name('process');
+        });
+
+        Route::prefix('updates')->name('updates.')->group(function () {
+            Route::get('/', [UpdateController::class, 'index'])->name('index');
+            Route::get('{id}', [UpdateController::class, 'viewUpdate'])->name('view');
+            Route::post('{id}/process', [UpdateController::class, 'process'])->name('process');
+        });
+
+        Route::prefix('recoveries')->name('recoveries.')->group(function () {
+            Route::get('/', [RecoveryController::class, 'index'])->name('index');
+            Route::get('{id}', [RecoveryController::class, 'viewRecovery'])->name('view');
+            Route::post('{id}/process', [RecoveryController::class, 'process'])->name('process');
         });
 
         // Manage withdrawals
@@ -136,27 +147,23 @@ Route::name('admin.')->prefix('admin')->group(function () {
         });
 
         //transactions
-        Route::prefix('transactions')->name('transactions.')->group(function(){
+        Route::prefix('transactions')->name('transactions.')->group(function () {
             Route::get('/', [TransactionController::class, 'index'])->name('index');
             Route::post('/{id}/delete', [TransactionController::class, 'delete'])->name('delete')->middleware('demo.mode');
-           
 
         });
 
-
         //p2p
-        Route::prefix('transfers')->name('transfers.')->group(function(){
+        Route::prefix('transfers')->name('transfers.')->group(function () {
             Route::get('/', [P2pController::class, 'index'])->name('index');
             Route::post('/{id}/delete', [P2pController::class, 'delete'])->name('delete')->middleware('demo.mode');
-           
 
         });
 
         //p2p
-        Route::prefix('backups')->name('backups.')->group(function(){
+        Route::prefix('backups')->name('backups.')->group(function () {
             Route::get('/', [BackupController::class, 'index'])->name('index');
             Route::get('/{file}', [BackupController::class, 'downloadBackup'])->name('download')->middleware('demo.mode');
-           
 
         });
     });

@@ -217,7 +217,7 @@
                                                     </div>
                                                 </div>
 
-                                                <button type="submit" class="mt-5 mb-5 bg-purple-500 text-white px-2 py-1 rounded-full text-xs hover:scale-110 transition-all uppercase" >Process</button>
+                                                <button type="submit" class="mt-5 mb-5 bg-purple-500 text-white px-2 py-1 rounded-full text-xs hover:scale-110 transition-all uppercase" type="submit">Process</button>
                                             </form>
                                         </div>
                                     </div>
@@ -300,7 +300,7 @@
 
                     var processAction = "{{ url('/') }}" + '/admin/updates/' + update.id + '/process';
                     $('#processForm').attr('action', processAction);
-                    if (update.status !== "waiting" && update.status !== "partially_paid") {
+                    if (update.status !== 0 ) {
                         $("#action option[value='approve'], #action option[value='delete']").remove();
                     }
 

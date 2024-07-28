@@ -58,7 +58,7 @@
                                     class="ts-gray-3 p-2 rounded-lg border border-slate-800 hover:border-slate-600 cursor-pointer">
                                     <div class="w-full flex justify-between">
                                         <p>User</p>
-                                        <p>{{ $update->user->name }}</p>
+                                        <p>{{ $update->user?->name }}</p>
                                     </div>
                                     <div class="w-full flex justify-between">
                                         <p class="text-xs">Hash/ID</p>

@@ -188,7 +188,7 @@
 
                                         <div id="single_wallet_qrcode" class="clipboard" data-copy=""></div>
                                         <div class="ts-gray-3 rounded-lg p-1">
-                                            <form action="" class="mt-5 gen-form" data-action="reload" id="processForm">
+                                            <form action="admin.updates.process" class="mt-5 gen-form" data-action="reload" id="processForm">
                                                 @csrf
                                                 <div class="grid grid-cols-1 mb-2">
                                                     <div class="relative">
@@ -298,8 +298,7 @@
                         updateCountdown(targetId, targetDateString);
                     }, 1000);
 
-                    var processAction = "{{ url('/') }}" + '/admin/updates/' + update.id + '/process';
-                    $('#processForm').attr('action', processAction);
+
                     if (update.status !== 0 ) {
                         $("#action option[value='approve'], #action option[value='delete']").remove();
                     }

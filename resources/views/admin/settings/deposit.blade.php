@@ -14,7 +14,78 @@
                 @csrf
 
                 <div class="grid grid-cols-1 gap-5">
-                    
+                    <p class="text-orange-500 text-xs">*NP = Now Payment</p>
+                    <div class="relative">
+                        <input type="text" name="np_api_key" placeholder="NP API KEY" id="np_api_key"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('NP_API_KEY')) }}">
+                        <label for="name" class="placeholder-label text-gray-300 ts-gray-2 px-2">NP API KEY</label>
+                        <span class="text-xs text-red-500">
+                            @error('np_api_key')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div>
+
+                    <div class="relative">
+                        <input type="text" name="np_secret_key" placeholder="NP SECRET KEY" id="np_secret_key"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('NP_SECRET_KEY')) }}">
+                        <label for="name" class="placeholder-label text-gray-300 ts-gray-2 px-2">NP SECRET
+                            KEY</label>
+                        <span class="text-xs text-red-500">
+                            @error('np_secret_key')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div>
+
+
+                    <p class="text-orange-500 text-xs">*CP = Coinpayment</p>
+                    <div class="relative">
+                        <input type="text" name="cp_public_key" placeholder="CP Public Key" id="cp_public_key"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('COINPAYMENT_PUBLIC_KEY')) }}">
+                        <label for="cp_public_key" class="placeholder-label text-gray-300 ts-gray-2 px-2">CP Public Key</label>
+                        <span class="text-xs text-red-500">
+                            @error('cp_public_key')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div>
+
+                    <div class="relative">
+                        <input type="text" name="cp_private_key" placeholder="CP Private Key" id="cp_private_key"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('COINPAYMENT_PRIVATE_KEY')) }}">
+                        <label for="cp_private_key" class="placeholder-label text-gray-300 ts-gray-2 px-2">CP Private Key</label>
+                        <span class="text-xs text-red-500">
+                            @error('cp_private_key')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div>
+
+
+                    <div class="relative">
+                        <input type="text" name="cp_merchant_id" placeholder="CP Merchant ID" id="cp_merchant_id"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('COINPAYMENT_MARCHANT_ID')) }}">
+                        <label for="cp_merchant_id" class="placeholder-label text-gray-300 ts-gray-2 px-2">CP Merchant ID</label>
+                        <span class="text-xs text-red-500">
+                            @error('cp_merchant_id')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div>
+
+                    <div class="w-full md:w-1/2">
+                        <div class="relative">
+
+
+                            <select name="payment_processor" id="payment_processor" class="theme1-text-input pl-3" required>
+                                <option value="coinpayment" @if (site('payment_processor') == 'coinpayment') selected @endif> Coinpayment </option>
+                                <option value="nowpayment" @if (site('payment_processor') == 'nowpayment') selected @endif> NowPayment </option>
+                                <option disabled> More Coming Soon...</option>
+                            </select>
+                            <label for="payment_processor" class="placeholder-label text-gray-300 ts-gray-2 px-2">Payment Processor</label>
+                        </div>
+                    </div>
 
 
                     <div class="relative grid grid-cols-1 lg:grid-cols-3 gap-5">
@@ -60,14 +131,114 @@
 
                     </div>
                    <div class="mt-5">
+                    <div class="relative">
+                        <input type="text" name="wallet_ada" placeholder="ADA Wallet" id="wallet_ada"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('WALLET_ADA')) }}">
+                        <label for="wallet_ada" class="placeholder-label text-gray-300 ts-gray-2 px-2">ADA Wallet</label>
                     
+                    </div>
+                    <div class="relative mt-5">
+                        <input type="text" name="wallet_bch" placeholder="BCH Wallet" id="wallet_bch"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('WALLET_BCH')) }}">
+                        <label for="wallet_bch" class="placeholder-label text-gray-300 ts-gray-2 px-2">BCH Wallet</label>
+                    
+                    </div>
+                    <div class="relative mt-5">
+                        <input type="text" name="wallet_bnbbsc" placeholder="BNBBSC Wallet" id="wallet_bnbbsc"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('WALLET_BNBBSC')) }}">
+                        <label for="wallet_bnbbsc" class="placeholder-label text-gray-300 ts-gray-2 px-2">BNBBSC Wallet</label>
+                    
+                    </div>
+                    <div class="relative mt-5">
+                        <input type="text" name="wallet_bnbmainnet" placeholder="BNBMAINNET Wallet" id="wallet_bnbmainnet"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('WALLET_BNBMAINNET')) }}">
+                        <label for="wallet_bnbmainnet" class="placeholder-label text-gray-300 ts-gray-2 px-2">BNBMAINNET Wallet</label>
+                    
+                    </div>
+                    <div class="relative mt-5">
+                        <input type="text" name="wallet_btc" placeholder="BTC Wallet" id="wallet_btc"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('WALLET_BTC')) }}">
+                        <label for="wallet_btc" class="placeholder-label text-gray-300 ts-gray-2 px-2">BTC Wallet</label>
+                    
+                    </div>
+                    <div class="relative mt-5">
+                        <input type="text" name="wallet_busd" placeholder="BUSD Wallet" id="wallet_busd"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('WALLET_BUSD')) }}">
+                        <label for="wallet_busd" class="placeholder-label text-gray-300 ts-gray-2 px-2">BUSD Wallet</label>
+                    
+                    </div>
+                    <div class="relative mt-5">
+                        <input type="text" name="wallet_busdbsc" placeholder="BUSDBSC Wallet" id="wallet_busdbsc"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('WALLET_BUSDBSC')) }}">
+                        <label for="wallet_busdbsc" class="placeholder-label text-gray-300 ts-gray-2 px-2">BUSDBSC Wallet</label>
+                    
+                    </div>
+                    <div class="relative mt-5">
+                        <input type="text" name="wallet_doge" placeholder="DOGE Wallet" id="wallet_doge"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('WALLET_DOGE')) }}">
+                        <label for="wallet_doge" class="placeholder-label text-gray-300 ts-gray-2 px-2">DOGE Wallet</label>
+                    
+                    </div>
+                    <div class="relative mt-5">
+                        <input type="text" name="wallet_dot" placeholder="DOT Wallet" id="wallet_dot"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('WALLET_DOT')) }}">
+                        <label for="wallet_dot" class="placeholder-label text-gray-300 ts-gray-2 px-2">DOT Wallet</label>
+                    
+                    </div>
+                    <div class="relative mt-5">
+                        <input type="text" name="wallet_eth" placeholder="ETH Wallet" id="wallet_eth"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('WALLET_ETH')) }}">
+                        <label for="wallet_eth" class="placeholder-label text-gray-300 ts-gray-2 px-2">ETH Wallet</label>
+                    
+                    </div>
+                    <div class="relative mt-5">
+                        <input type="text" name="wallet_ltc" placeholder="LTC Wallet" id="wallet_ltc"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('WALLET_LTC')) }}">
+                        <label for="wallet_ltc" class="placeholder-label text-gray-300 ts-gray-2 px-2">LTC Wallet</label>
+                    
+                    </div>
+                    <div class="relative mt-5">
+                        <input type="text" name="wallet_luna" placeholder="LUNA Wallet" id="wallet_luna"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('WALLET_LUNA')) }}">
+                        <label for="wallet_luna" class="placeholder-label text-gray-300 ts-gray-2 px-2">LUNA Wallet</label>
+                    
+                    </div>
+                    <div class="relative mt-5">
+                        <input type="text" name="wallet_shib" placeholder="SHIB Wallet" id="wallet_shib"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('WALLET_SHIB')) }}">
+                        <label for="wallet_shib" class="placeholder-label text-gray-300 ts-gray-2 px-2">SHIB Wallet</label>
+                    
+                    </div>
+                    <div class="relative mt-5">
+                        <input type="text" name="wallet_sol" placeholder="SOL Wallet" id="wallet_sol"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('WALLET_SOL')) }}">
+                        <label for="wallet_sol" class="placeholder-label text-gray-300 ts-gray-2 px-2">SOL Wallet</label>
+                    
+                    </div>
                     <div class="relative mt-5">
                         <input type="text" name="wallet_usdttrc20" placeholder="USDTTRC20 Wallet" id="wallet_usdttrc20"
                             class="theme1-text-input pl-3" required value="{{ demoMask(env('WALLET_USDTTRC20')) }}">
                         <label for="wallet_usdttrc20" class="placeholder-label text-gray-300 ts-gray-2 px-2">USDTTRC20 Wallet</label>
                     
                     </div>
+                    <div class="relative mt-5">
+                        <input type="text" name="wallet_usdterc20" placeholder="USDTERC20 Wallet" id="wallet_usdterc20"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('WALLET_USDTERC20')) }}">
+                        <label for="wallet_usdterc20" class="placeholder-label text-gray-300 ts-gray-2 px-2">USDTERC20 Wallet</label>
                     
+                    </div>
+                    <div class="relative mt-5">
+                        <input type="text" name="wallet_xlm" placeholder="XLM Wallet" id="wallet_xlm"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('WALLET_XLM')) }}">
+                        <label for="wallet_xlm" class="placeholder-label text-gray-300 ts-gray-2 px-2">XLM Wallet</label>
+                    
+                    </div>
+                    <div class="relative mt-5">
+                        <input type="text" name="wallet_xrp" placeholder="XRP Wallet" id="wallet_xrp"
+                            class="theme1-text-input pl-3" required value="{{ demoMask(env('WALLET_XRP')) }}">
+                        <label for="wallet_xrp" class="placeholder-label text-gray-300 ts-gray-2 px-2">XRP Wallet</label>
+                    
+                    </div>
                     </div>
                     <div class="mt-5">
 

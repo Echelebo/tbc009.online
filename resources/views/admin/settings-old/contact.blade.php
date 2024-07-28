@@ -60,14 +60,6 @@
                             <label for="c_email" class="placeholder-label text-gray-300 ts-gray-2 px-2">Email</label>
                         </div>
                     </div>
-                    
-                    <div class="grid grid-cols-1 gap-5">
-                        <div class="relative">
-                            <input type="email" name="ntemail" placeholder="Notifiction Email" id="n_email"
-                                class="theme1-text-input pl-3" value="{{ site('ntemail') }}">
-                            <label for="n_email" class="placeholder-label text-gray-300 ts-gray-2 px-2">Notification Email</label>
-                        </div>
-                    </div>
     
                     <div class="grid grid-cols-1">
                         <label for="livechat" class="text-gray-300 ts-gray-2 px-2">Livechat</label>

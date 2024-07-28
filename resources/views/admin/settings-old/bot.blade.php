@@ -6,7 +6,7 @@
 
 
 <div class="w-full p-5 mb-5 ts-gray-2 rounded-lg transition-all rescron-card hidden" id="bot-setting">
-    <h3 class="capitalize  font-extrabold "><span class="border-b-2">Bot Setting</span>
+    <h3 class="capitalize  font-extrabold "><span class="border-b-2">Plan Setting</span>
     </h3>
 
 
@@ -32,7 +32,7 @@
                             <label for="bot_min_trade" class="placeholder-label text-gray-300 ts-gray-2 px-2">Minimum
                                 Trade</label>
                             <span class="text-xs text-blue-500">
-                                Minimum number of times a bot can trade daily for a user
+                                Minimum number of times a plan can trade daily for a user
                             </span>
                         </div>
 
@@ -43,7 +43,7 @@
                             <label for="bot_max_trade" class="placeholder-label text-gray-300 ts-gray-2 px-2">Maximum
                                 Trade</label>
                             <span class="text-xs text-blue-500">
-                                Maximum number of times a bot can trade daily for a user
+                                Maximum number of times a plan can trade daily for a user
                             </span>
                         </div>
 
@@ -56,10 +56,10 @@
                                 <option value="1" @if (site('bot_compounding') == 1) selected @endif> Enabled
                                 </option>
                             </select>
-                            <label for="bot_compounding" class="placeholder-label text-gray-300 ts-gray-2 px-2">Bot
+                            <label for="bot_compounding" class="placeholder-label text-gray-300 ts-gray-2 px-2">Plan
                                 Compounding</label>
                             <span class="text-xs text-blue-500">
-                                If you enable this, the bot will trade with portfolio balance instead of the original
+                                If you enable this, the plan will trade with portfolio balance instead of the original
                                 capital
                             </span>
                         </div>

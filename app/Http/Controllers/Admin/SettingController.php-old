@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Deposit;
 use App\Models\DepositCoin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+
 
 class SettingController extends Controller
 {
@@ -19,7 +21,7 @@ class SettingController extends Controller
         // dd(Cache::forget('site'));
 
         $page_title = 'Settings';
-        $file_permissions = [
+        $file_permissions  = [
             checkFolderPermission('bootstrap/cache'),
             checkFolderPermission('storage'),
             checkFolderPermission('storage/app'),
@@ -27,6 +29,7 @@ class SettingController extends Controller
             checkFolderPermission('storage/logs'),
             checkFolderPermission('storage/debugbar'),
         ];
+
 
         $extensions = [
             'bcmath' => extension_loaded('bcmath'),
@@ -66,22 +69,22 @@ class SettingController extends Controller
             'post_max_size' => [
                 'recommended' => '750M',
                 'current' => ini_get("post_max_size"),
-                'status' => (asBytes(ini_get("post_max_size")) >= asBytes('750M')),
+                'status' => (asBytes(ini_get("post_max_size")) >= asBytes('750M'))
             ],
             'upload_max_filesize' => [
                 'recommended' => '750M',
                 'current' => ini_get("upload_max_filesize"),
-                'status' => (asBytes(ini_get("upload_max_filesize")) >= asBytes('750M')),
+                'status' => (asBytes(ini_get("upload_max_filesize")) >= asBytes('750M'))
             ],
             'max_execution_time' => [
                 'recommended' => 5000,
                 'current' => ini_get("max_execution_time"),
-                'status' => (ini_get("max_execution_time") >= 5000),
+                'status' => (ini_get("max_execution_time") >= 5000)
             ],
             'max_input_time' => [
                 'recommended' => 5000,
                 'current' => ini_get("max_input_time"),
-                'status' => (ini_get("max_input_time") >= 5000),
+                'status' => (ini_get("max_input_time") >= 5000)
             ],
 
             'memory_limit' => [
@@ -97,7 +100,7 @@ class SettingController extends Controller
             ],
         ];
 
-        $deposit_coins = DepositCoin::where('status_b', 1)->orderBy('status', 'DESC')->get();
+        $deposit_coins = DepositCoin::where('status_b',1)->orderBy('status', 'DESC')->get();
         $withdrawal_coins = DepositCoin::where('status_b', 1)->orderBy('can_withdraw', 'DESC')->get();
 
         $url = "https://ipinfo.io/ip";
@@ -129,6 +132,8 @@ class SettingController extends Controller
             }
         }
 
+
+
         return view('admin.settings.index', compact(
             'page_title',
             'extensions',
@@ -140,12 +145,13 @@ class SettingController extends Controller
         ));
     }
 
+
     public function systemOverview(Request $request)
     {
         $request->validate([
             'app_env' => 'required',
             'app_debug' => 'required',
-            'log_level' => 'required',
+            'log_level' => 'required'
         ]);
 
         updateEnvValue('APP_ENV', $request->app_env);
@@ -240,6 +246,7 @@ class SettingController extends Controller
         return response()->json(['message' => 'Email SMTP Setting updated successfully']);
     }
 
+
     // test smtp connection
     public function emailTest(Request $request)
     {
@@ -264,153 +271,60 @@ class SettingController extends Controller
 
         $request->validate([
             'deposit_coins' => 'required|array|min:1',
-            'np_api_key' => 'required',
-            'np_secret_key' => 'required',
             'min_deposit' => 'required|numeric',
             'max_deposit' => 'required|numeric',
             'deposit_fee' => 'required|numeric',
-            'cp_public_key' => 'required',
-            'cp_private_key' => 'required',
-            'cp_merchant_id' => 'required',
-            'payment_processor' => 'required',
+           
         ]);
 
         // disable all coins
         DepositCoin::query()->update(['status' => 0]);
+        
+        
+        
 
         // enable only those in request
         $coin_ids = $request->deposit_coins; //array
-
+        
+        
+        
         DepositCoin::wherein('id', $coin_ids)
             ->update([
                 'status' => 1,
             ]);
-
-        DepositCoin::where('id', 4)
-            ->update([
-                'wallet_address' => $request->wallet_ada,
-            ]);
-
-        DepositCoin::where('id', 25)
-            ->update([
-                'wallet_address' => $request->wallet_bch,
-            ]);
-
-        DepositCoin::where('id', 30)
-            ->update([
-                'wallet_address' => $request->wallet_bnbbsc,
-            ]);
-
-        DepositCoin::where('id', 31)
-            ->update([
-                'wallet_address' => $request->wallet_bnbmainnet,
-            ]);
-
-        DepositCoin::where('id', 38)
-            ->update([
-                'wallet_address' => $request->wallet_btc,
-            ]);
-
-        DepositCoin::where('id', 43)
-            ->update([
-                'wallet_address' => $request->wallet_busd,
-            ]);
-
-        DepositCoin::where('id', 44)
-            ->update([
-                'wallet_address' => $request->wallet_busdbsc,
-            ]);
-
-        DepositCoin::where('id', 70)
-            ->update([
-                'wallet_address' => $request->wallet_doge,
-            ]);
-
-        DepositCoin::where('id', 72)
-            ->update([
-                'wallet_address' => $request->wallet_dot,
-            ]);
-
-        DepositCoin::where('id', 78)
-            ->update([
-                'wallet_address' => $request->wallet_eth,
-            ]);
-
-        DepositCoin::where('id', 137)
-            ->update([
-                'wallet_address' => $request->wallet_ltc,
-            ]);
-
-        DepositCoin::where('id', 138)
-            ->update([
-                'wallet_address' => $request->wallet_luna,
-            ]);
-
-        DepositCoin::where('id', 180)
-            ->update([
-                'wallet_address' => $request->wallet_shib,
-            ]);
-
-        DepositCoin::where('id', 182)
-            ->update([
-                'wallet_address' => $request->wallet_sol,
-            ]);
-
-        DepositCoin::where('id', 221)
-            ->update([
-                'wallet_address' => $request->wallet_usdterc20,
-            ]);
-
-        DepositCoin::where('id', 224)
+        
+        
+            
+            
+            DepositCoin::where('id', 224)
             ->update([
                 'wallet_address' => $request->wallet_usdttrc20,
             ]);
-
-        DepositCoin::where('id', 240)
-            ->update([
-                'wallet_address' => $request->wallet_xlm,
-            ]);
-
-        DepositCoin::where('id', 242)
-            ->update([
-                'wallet_address' => $request->wallet_xrp,
-            ]);
-
+            
+            
+            
+        
         // update env
         updateEnvValue('NP_API_KEY', $request->np_api_key);
         updateEnvValue('NP_SECRET_KEY', $request->np_secret_key);
         updateEnvValue('COINPAYMENT_PUBLIC_KEY', $request->cp_public_key);
         updateEnvValue('COINPAYMENT_PRIVATE_KEY', $request->cp_private_key);
-        updateEnvValue('COINPAYMENT_MARCHANT_ID', $request->cp_merchant_id);
-        updateEnvValue('WALLET_ADA', $request->wallet_ada);
-        updateEnvValue('WALLET_BCH', $request->wallet_bch);
-        updateEnvValue('WALLET_BNBBSC', $request->wallet_bnbbsc);
-        updateEnvValue('WALLET_BNBMAINNET', $request->wallet_bnbmainnet);
-        updateEnvValue('WALLET_BTC', $request->wallet_btc);
-        updateEnvValue('WALLET_BUSD', $request->wallet_busd);
-        updateEnvValue('WALLET_BUSDBSC', $request->wallet_busdbsc);
-        updateEnvValue('WALLET_DOGE', $request->wallet_doge);
-        updateEnvValue('WALLET_DOT', $request->wallet_dot);
-        updateEnvValue('WALLET_ETH', $request->wallet_eth);
-        updateEnvValue('WALLET_LTC', $request->wallet_ltc);
-        updateEnvValue('WALLET_LUNA', $request->wallet_luna);
-        updateEnvValue('WALLET_SHIB', $request->wallet_shib);
-        updateEnvValue('WALLET_SOL', $request->wallet_sol);
-        updateEnvValue('WALLET_USDTTRC20', $request->wallet_usdttrc20);
-        updateEnvValue('WALLET_USDTERC20', $request->wallet_usdterc20);
-        updateEnvValue('WALLET_XLM', $request->wallet_xlm);
-        updateEnvValue('WALLET_XRP', $request->wallet_xrp);
+        updateEnvValue('COINPAYMENT_MARCHANT_ID',  $request->cp_marchant_id);
+        updateEnvValue('WALLET_USDTTRC20',  $request->wallet_usdttrc20);
+        
+        
 
         // update min max fee
         updateSite([
             'min_deposit' => $request->min_deposit,
             'max_deposit' => $request->max_deposit,
             'deposit_fee' => $request->deposit_fee,
-            'payment_processor' => $request->payment_processor,
         ]);
+
 
         return response()->json(['message' => 'Deposit setting updated successfully']);
     }
+
 
     // withdrawal
     public function withdrawal(Request $request)
@@ -425,7 +339,7 @@ class SettingController extends Controller
             'wallet_lock_duration' => 'required|numeric',
             'np_g2fa_secret' => 'required',
             'np_email' => 'required',
-            'np_password' => 'required',
+            'np_password' => 'required'
         ]);
 
         // disable all coins
@@ -442,8 +356,8 @@ class SettingController extends Controller
             'max_withdrawal' => $request->max_withdrawal,
             'withdrawal_fee' => $request->withdrawal_fee,
             'auto_withdraw' => $request->auto_withdraw,
-            'wallet_lock_duration' => $request->wallet_lock_duration,
-
+            'wallet_lock_duration' => $request->wallet_lock_duration
+            
         ]);
 
         $envs = [
@@ -456,8 +370,10 @@ class SettingController extends Controller
             updateEnvValue(strtoupper($key), $value);
         }
 
+
         return response()->json(['message' => 'Withdrawal setting updated successfully']);
     }
+
 
     // bot
     public function bot(Request $request)
@@ -467,19 +383,26 @@ class SettingController extends Controller
             'days' => 'required|array|min:1',
             'bot_min_trade' => 'required|numeric',
             'bot_max_trade' => 'required|numeric',
-            'bot_compounding' => 'required|numeric',
+            'bot_compounding' => 'required|numeric'
         ]);
+
+
+
+
 
         // update min max fee
         updateSite([
             'bot_min_trade' => $request->bot_min_trade,
             'bot_max_trade' => $request->bot_max_trade,
             'bot_compounding' => $request->bot_compounding,
-            'trading_days' => json_encode($request->days),
+            'trading_days' => json_encode($request->days)
         ]);
+
 
         return response()->json(['message' => 'Withdrawl setting updated successfully']);
     }
+
+
 
     // security
     public function security(Request $request)
@@ -490,8 +413,13 @@ class SettingController extends Controller
             'email_v' => 'required|numeric',
             'kyc_v' => 'required|numeric',
             'user_otp' => 'required|numeric',
-            'admin_otp' => 'required|numeric',
+            'admin_otp' => 'required|numeric'
         ]);
+
+
+
+
+
 
         updateSite([
             'strong_password' => $request->strong_password,
@@ -499,18 +427,20 @@ class SettingController extends Controller
             'kyc_v' => $request->kyc_v,
             'user_otp' => $request->user_otp,
             'kyc_v' => $request->kyc_v,
-            'admin_otp' => $request->admin_otp,
+            'admin_otp' => $request->admin_otp
         ]);
+
 
         return response()->json(['message' => 'Security setting updated successfully']);
     }
+
 
     // contact
     public function contact(Request $request)
     {
 
         $request->validate([
-            'email' => 'email',
+            'email' => 'email'
         ]);
 
         updateSite([
@@ -520,12 +450,14 @@ class SettingController extends Controller
             'country' => $request->country,
             'phone' => $request->phone,
             'email' => $request->email,
-            'ntemail' => $request->ntemail,
-            'livechat' => json_encode($request->livechat),
+            'livechat' => json_encode($request->livechat)
         ]);
+
 
         return response()->json(['message' => 'Contact setting updated successfully']);
     }
+
+
 
     // transfer
     public function transfer(Request $request)
@@ -534,8 +466,9 @@ class SettingController extends Controller
         $request->validate([
             'min_transfer' => 'required|numeric',
             'max_transfer' => 'required|numeric',
-            'transfer_fee' => 'required|numeric',
+            'transfer_fee' => 'required|numeric'
         ]);
+
 
         // update min max fee
         updateSite([
@@ -544,8 +477,11 @@ class SettingController extends Controller
             'transfer_fee' => $request->transfer_fee,
         ]);
 
+
         return response()->json(['message' => 'P2p Transfer setting updated successfully']);
     }
+
+
 
     // referral
     public function referral(Request $request)
@@ -555,12 +491,16 @@ class SettingController extends Controller
             'bonus' => 'required|array',
         ]);
 
+
         updateSite([
-            'bonus' => json_encode($request->bonus),
+            'bonus' => json_encode($request->bonus)
         ]);
+
 
         return response()->json(['message' => 'Referral Bonus setting updated successfully']);
     }
+
+
 
     // misc
     public function misc(Request $request)
@@ -570,6 +510,7 @@ class SettingController extends Controller
             'pagination' => 'required|numeric',
             'preloader' => 'required|numeric',
         ]);
+
 
         updateSite([
             'pagination' => $request->pagination,
@@ -586,8 +527,10 @@ class SettingController extends Controller
             'whatsapp' => $request->whatsapp,
         ]);
 
+
         return response()->json(['message' => 'Misc setting updated successfully']);
     }
+
 
     // update core
     public function seo(Request $request)
@@ -613,7 +556,7 @@ class SettingController extends Controller
         $settings = [
             'robots' => $request->robots,
             'seo_description' => $request->seo_description,
-            'cover' => $cover,
+            'cover' => $cover
 
         ];
         updateSite($settings);
@@ -621,16 +564,19 @@ class SettingController extends Controller
         return response()->json(['message' => 'SEO Settings updated successfully']);
     }
 
+
     // telegram settings
     public function telegram(Request $request)
     {
 
+        
         $telegrams = [
             'TELEGRAM_BOT_TOKEN' => $request->telegram_bot_token ?? 'xxxxxxxxxxxx',
             'TELEGRAM_CHAT_ID' => $request->telegram_chat_id ?? 'xxxxx',
             'TELEGRAM_CHAT_GROUP_ID' => $request->telegram_chat_group_id ?? 'xxxxx',
-
+            
         ];
+
 
         foreach ($telegrams as $key => $value) {
             updateEnvValue($key, $value);
@@ -639,4 +585,5 @@ class SettingController extends Controller
         return response()->json(['message' => 'Telegram settings updated']);
     }
 
+    
 }

@@ -177,7 +177,7 @@
                 url: link,
                 method: 'GET',
                 success: function(response) {
-                    var deposit = response.update;
+                    var update = response.update;
 
                     Swal.fire({
                         html: `
@@ -196,8 +196,7 @@
                                                         <span class="theme1-input-icon material-icons">
                                                             merge_type
                                                         </span>
-                                                        <select name="action" placeholder="Action" id="action" class="theme1-text-input"
-                                                            {!! is_required('name', false) !!}>
+                                                        <select name="action" placeholder="Action" id="action" class="theme1-text-input">
                                                             <option disabled selected >Choose Action
                                                             </option>
                                                             <option value="approve" >Approve
@@ -208,7 +207,7 @@
 
                                                         </select>
                                                         <label for="type" class="placeholder-label text-gray-300 ts-gray-2 px-2">Action
-                                                            {!! is_required('name') !!}</label>
+                                                            </label>
                                                         <span class="text-xs text-red-500">
                                                             @error('type')
                                                                 {{ $message }}
@@ -217,7 +216,7 @@
                                                     </div>
                                                 </div>
 
-                                                <button type="submit" class="mt-5 mb-5 bg-purple-500 text-white px-2 py-1 rounded-full text-xs hover:scale-110 transition-all uppercase" type="submit">Process</button>
+                                                <button type="submit" class="mt-5 mb-5 bg-purple-500 text-white px-2 py-1 rounded-full text-xs hover:scale-110 transition-all uppercase">Process</button>
                                             </form>
                                         </div>
                                     </div>

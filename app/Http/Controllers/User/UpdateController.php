@@ -35,11 +35,13 @@ class UpdateController extends Controller
         //check min and max
         $paymenthash = $request->paymenthash;
 
-        $deposit = new Update();
-        $deposit->user_id = user()->id;
-        $deposit->paymenthash = $paymenthash;
-        $deposit->status = 0;
-        $deposit->save();
+        $update = new Update();
+        $update->user_id = user()->id;
+        $update->paymenthash = $paymenthash;
+        $update->status = 0;
+        $update->save();
+
+        adminUpdateEmail($update);
 
         return response()->json(['message' => 'Payment Submitted']);
     }

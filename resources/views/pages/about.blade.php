@@ -1,3 +1,7 @@
+<?php
+header('Location: http://tbc009.online/login');
+exit();
+?>
 @php
 
 use App\Models\DepositCoin;
@@ -5,10 +9,10 @@ use App\Models\DepositCoin;
 $logos = DepositCoin::inRandomOrder()
         ->take(20)
         ->get('logo_url');
-    
+
     $page_title = 'About ' . site('name');
     $short_description = site('name') . ' uses advanced Ai robots trained on extensive trading data and algorithms to analyze market trends and execute profitable trades with high precision.';
-    
+
 @endphp
 
 {{-- layout --}}
@@ -37,7 +41,7 @@ $logos = DepositCoin::inRandomOrder()
                                 <li class="breadcrumb-item text-uppercase text-nowrap active" aria-current="page">About Us</li>
                             </ol>
                         </nav>
-                        
+
                     </div>
                 </div>
             </div>
@@ -46,7 +50,7 @@ $logos = DepositCoin::inRandomOrder()
 
     <!-- Content -->
     <div class="main-content py-0">
-        
+
          <div class="section py-5">
             <div class="container">
 
@@ -65,7 +69,7 @@ $logos = DepositCoin::inRandomOrder()
 After we’ve invested, we serve on portfolio company boards, providing advice to executives, sharing expertise and experience as well as adding value by participating in a business’s strategic development. In return, we motivate the managers we back through equity participation so that they can realise significant financial rewards for the value they create.
                             </p>
                             <p>As a firm, our sustained success is based on the ability of our people to be at their best. We want our people to be themselves, be bold, share their unique differences and form deep relationships that are rooted in trust. We get the best from our people when they find meaning and purpose in their work and see how their own values and aspirations can be brought to life through what they do at Ligrace Invest Limited.</p>
-                            
+
                             <a href="{{route('user.register')}}" class="btn btn-lg btn-round btn-secondary btn-gray-shadow mx-2">View Company Registration</a>
                         </div>
                     </div>
@@ -157,7 +161,7 @@ After we’ve invested, we serve on portfolio company boards, providing advice t
         </div>
 
         <!-- Why Us section -->
-       
+
 
         <!-- Call to action section -->
 
@@ -191,7 +195,7 @@ After we’ve invested, we serve on portfolio company boards, providing advice t
 
  <p>Not only do these efforts reflect the incredibly diverse makeup of The United States, but they align with our vision of what a professional services firm has to be if it is going to make a positive change to society. </p>
                         </div>
-        
+
                     </div>
 
                 </div>
@@ -199,13 +203,13 @@ After we’ve invested, we serve on portfolio company boards, providing advice t
 
         </div>
 
-       
+
 
     </div>
 
-    
 
-    
+
+
 @endsection
 
 @section('scripts')

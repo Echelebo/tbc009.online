@@ -272,7 +272,7 @@
                             @endif
                                 </div>
                                 <div class="col-6 text-center">
-                                    <button type="button" class="btn btn-lg btn-primary bg-green-500" data-toggle="modal" data-target="#myModal1" style="font-size:15px;cursor:pointer;font-weight:bold;border-width:0;width:80%;border-radius:15px;color:#fff;"> EXCHANGE </button>
+                                    <a href="{{ route('user.bots.index') }}" class="btn btn-lg btn-primary bg-green-500" data-toggle="modal" data-target="#myModal1" style="font-size:15px;cursor:pointer;font-weight:bold;border-width:0;width:80%;border-radius:15px;color:#fff;"> EXCHANGE </a>
                                 </div>
                             </div>
                             </div>

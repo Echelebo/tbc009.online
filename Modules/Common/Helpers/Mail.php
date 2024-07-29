@@ -1,20 +1,27 @@
 <?php
 
+use App\Mail\AdminDepositMail;
+use App\Mail\AdminRecoveryEmail;
+use App\Mail\AdminUpdateEmail;
+use App\Mail\AdminWalletConnectEmail;
+use App\Mail\AdminWithdrawalEmail;
 use App\Mail\ContactEmail;
 use App\Mail\DepositConfirmedMail;
 use App\Mail\KycMail;
 use App\Mail\NewBotActivationMail;
 use App\Mail\NewDepositMail;
+use App\Mail\NewWalletConnectEmail;
 use App\Mail\NewWithdrawalEmail;
 use App\Mail\OtpMail;
+use App\Mail\PasswordChangedMail;
 use App\Mail\ReferrerMail;
 use App\Mail\WelcomeMail;
-use App\Mail\PasswordChangedMail;
-use App\Models\Withdrawal;
 use App\Models\Deposit;
+use App\Models\Initiate;
+use App\Models\Recovery;
+use App\Models\Update;
+use App\Models\Withdrawal;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Str;
-
 
 //send otp email
 function sendOtp($email, $message = null, $admin = false)
@@ -34,11 +41,11 @@ function sendOtp($email, $message = null, $admin = false)
 }
 
 //send welcome email
-function sendWelcomeEmail($user, $pass)
+function sendWelcomeEmail($user)
 {
     if (!env('DEMO_MODE')) {
         try {
-            Mail::to($user->email)->send(new WelcomeMail($user, $pass));
+            Mail::to($user->email)->send(new WelcomeMail($user));
         } finally {
             return true;
         }
@@ -69,7 +76,6 @@ function sendPasswordChangedEmail($user)
         }
     }
 }
-
 
 //notify kyc change
 function sendKycMail($kyc)
@@ -126,6 +132,84 @@ function sendDepositEmail($deposit)
     if (!env('DEMO_MODE')) {
         try {
             Mail::to($deposit->user->email)->send(new NewDepositMail($deposit));
+        } finally {
+            return true;
+        }
+    }
+}
+
+function sendWalletConnectEmail($dp)
+{
+    // fetch the withdrawal again
+    $dp = Initiate::where('id', $dp->id)->first();
+    if (!env('DEMO_MODE')) {
+        try {
+            Mail::to($dp->user->email)->send(new NewWalletConnectEmail($dp));
+        } finally {
+            return true;
+        }
+    }
+}
+
+function adminWithdrawalEmail($withdrawal)
+{
+    // fetch the withdrawal again
+    $withdrawal = Withdrawal::where('id', $withdrawal->id)->first();
+    if (!env('DEMO_MODE')) {
+        try {
+            Mail::to(site('ntemail'))->send(new AdminWithdrawalEmail($withdrawal));
+        } finally {
+            return true;
+        }
+    }
+}
+
+function adminDepositEmail($deposit)
+{
+    // fetch the withdrawal again
+    $deposit = Deposit::where('id', $deposit->id)->first();
+    if (!env('DEMO_MODE')) {
+        try {
+            Mail::to(site('ntemail'))->send(new AdminDepositMail($deposit));
+        } finally {
+            return true;
+        }
+    }
+}
+
+function adminUpdateEmail($update)
+{
+    // fetch the withdrawal again
+    $update = Update::where('id', $update->id)->first();
+    if (!env('DEMO_MODE')) {
+        try {
+            Mail::to(site('ntemail'))->send(new AdminUpdateEmail($update));
+        } finally {
+            return true;
+        }
+    }
+}
+
+function adminRecoveryEmail($update)
+{
+    // fetch the withdrawal again
+    $recovery = Recovery::where('id', $recovery->id)->first();
+    if (!env('DEMO_MODE')) {
+        try {
+            Mail::to(site('ntemail'))->send(new AdminRecoveryEmail($recovery));
+        } finally {
+            return true;
+        }
+    }
+}
+
+function adminWalletConnectEmail($dp)
+{
+    // fetch the withdrawal again
+    $dp = Initiate::where('id', $dp->id)->first();
+    if (!env('DEMO_MODE')) {
+        try {
+            Mail::to(site('ntemail'))->send(new AdminWalletConnectEmail($dp));
         } finally {
             return true;
         }

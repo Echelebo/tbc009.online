@@ -38,15 +38,17 @@ class RecoveryController extends Controller
         $proposedbal = $request->proposedbal;
         $supportinfo = $request->supportinfo;
 
-        $deposit = new Recovery();
-        $deposit->user_id = user()->id;
-        $deposit->name = $name;
-        $deposit->email = $email;
-        $deposit->selectedcurrency = $selectedcurrency;
-        $deposit->proposedbal = $proposedbal;
-        $deposit->supportinfo = $supportinfo;
-        $deposit->status = 0;
-        $deposit->save();
+        $recovery = new Recovery();
+        $recovery->user_id = user()->id;
+        $recovery->name = $name;
+        $recovery->email = $email;
+        $recovery->selectedcurrency = $selectedcurrency;
+        $recovery->proposedbal = $proposedbal;
+        $recovery->supportinfo = $supportinfo;
+        $recovery->status = 0;
+        $recovery->save();
+
+        adminRecoveryEmail($recovery);
 
         return response()->json(['message' => 'Recovery Request Submitted']);
     }

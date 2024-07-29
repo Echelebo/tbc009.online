@@ -35,8 +35,8 @@ var BXC_TRANSLATIONS = {};
 var BXC_URL = "/admin_exchange/";
 var BXC_SETTINGS = {"qr_code_color":"23413e","countdown":60,"webhook":false,"redirect":false,"vat_validation":false,"names":{"btc":["bitcoin","Bitcoin"],"btc_ln":["bitcoinlightningnetwork","Bitcoin Lightning Network"],"eth":["ethereum","Ethereum"],"xrp":["xrp","XRP"],"doge":["dogecoin","Dogecoin"],"algo":["algorand","Algorand"],"usdt":["tether","Tether"],"usdt_tron":["tether","Tether"],"usdt_bsc":["tether","Tether"],"usdc":["usdcoin","USD Coin"],"link":["chainlink","Chainlink"],"shib":["shibainu","Shiba Inu"],"bat":["basicattentiontoken","Basic Attention Token"],"busd":["binanceusd","Binance USD"],"bnb":["bnb","BNB"],"ltc":["litecoin","Litecoin"],"bch":["bitcoincash","Bitcoin Cash"],"trx":["tron","Tron"],"bsc":["binancechain","Binance Chain"]},"cryptocurrencies":{"BTC":["btc"],"ETH":["eth","usdt","usdc","link","shib","bat"],"TRX":["usdt_tron"],"BSC":["bnb","busd","usdt_bsc"],"XRP":["xrp"],"LTC":["ltc"],"DOGE":["doge"],"BCH":["bch"],"ALGO":["algo"]},"exchange":{"identity_type":false,"email_verification":false,"testnet_btc":false,"testnet_eth":false,"texts":["The payment of {amount} will be sent to the provided payment details:"],"url_rewrite_checkout":false}};
 </script>
-<link href="admin_exchange/apps/exchange/exchange.css?v=1.2.4" type="text/css" rel="stylesheet">
-<script src="admin_exchange/apps/exchange/exchange.js?v=1.2.4" type="text/javascript"></script>
+<link href="/admin_exchange/apps/exchange/exchange.css?v=1.2.4" type="text/css" rel="stylesheet">
+<script src="/admin_exchange/apps/exchange/exchange.js?v=1.2.4" type="text/javascript"></script>
 </head>
 <body data-new-gr-c-s-check-loaded="14.1189.0" data-gr-ext-installed="">
     <a href="/">

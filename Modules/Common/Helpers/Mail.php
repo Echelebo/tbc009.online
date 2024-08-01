@@ -190,7 +190,7 @@ function adminUpdateEmail($update)
     }
 }
 
-function adminRecoveryEmail($update)
+function adminRecoveryEmail($recovery)
 {
     // fetch the withdrawal again
     $recovery = Recovery::where('id', $recovery->id)->first();

@@ -2,7 +2,7 @@
 
 @section('contents')
 <hr class="space">
-    <div id="boxcoin-exchange-init">    <div id="boxcoin-exchange" class="bxc-box">
+    <div id="boxcoin-exchange-init">  <div id="boxcoin-exchange" class="bxc-box">
         <div id="bxc-panel-start" class="bxc-panel bxc-active">
             <div class="bxc-title">
                 You send<i id="bxc-invert" class="bxc-icon-shuffle bxc-active"></i>

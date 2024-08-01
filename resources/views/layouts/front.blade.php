@@ -135,10 +135,6 @@ style="background-image: url(&quot;/prime/images/forbanner.jpg&quot;); position:
 
     <div class="container-fluid" style="width:50%;margin:auto;">
 
-    <div class="card my-4" style="background-color:#fff; color:#111010">
-        <!--<h5 class="card-header bg-primary text-white">Dashboard</h5>-->
-        <div class="card-body">
-
     <div class="row">
         <div class="col-md-6"></div>
 
@@ -160,8 +156,6 @@ style="background-image: url(&quot;/prime/images/forbanner.jpg&quot;); position:
             <a class="mt-2 logout"><i class="fa fa-sign-out"></i> LOGOUT</a>
             <hr style="width: 80%; background-color:#dbdbdb; height:0.2px; border-width:0;margin: auto; text-align:center;"/>
           </div>
-</div>
-</div>
 </div>
 </div>
 

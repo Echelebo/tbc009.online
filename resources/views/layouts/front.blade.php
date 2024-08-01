@@ -129,32 +129,26 @@
 <body class="bg-image bg-fixed" data-img-src="/prime/images/forbanner.jpg" data-new-gr-c-s-check-loaded="14.1159.0"
 data-gr-ext-installed=""
 style="background-image: url(&quot;/prime/images/forbanner.jpg&quot;); position: relative; min-height: 100%; top: 0px;">
-    <a href="/">
-        <img class="logo" src="/media/logo.png" alt="logo">
-    </a>
-
     <div class="container-fluid" style="width:50%;margin:auto;">
 
     <div class="row">
         <div class="col-md-6"></div>
 
     <div class="col-md-6 py-4" >
-        <button style="font-size:15px;cursor:pointer;right:0;float:right;font-weight:bold;background-color:#3d5acb;margin-right:50px;padding:4px 12px;border-width:0;border-radius:15px;color:#fff;" onclick="openNav()">&#9776; MENU</button>
+        <button style="font-size:15px;cursor:pointer;right:0;float:right;font-weight:bold;background-color:#ffffff;margin-right:50px;padding:4px 12px;border-width:0;border-radius:15px;color:#3d5acb;;" onclick="openNav()">&#9776; MENU</button>
 
         <div id="mySidenav" class="sidenav text-center">
             <a href="javascript:void(0)" class="closebtn" style="background-color:#3d5acb; border-radius:15px; border-width:0;padding:4px 8px; color:#fff;" onclick="closeNav()">&times; CLOSE</a>
             <h2 class="mt-4" style="color: #111010; font-size: 30px;">Menu</h2>
             <p>{{ user()->email }}</p>
-            <a href="{{ route('user.dashboard') }}" class="mt-4"><i class="fa fa-home" aria-hidden="true"></i> HOME</a>
+            <a href="{{ route('user.dashboard') }}" class="mt-4"><i class="fa fa-home" aria-hidden="true"></i> GO BACK TO WALLET</a>
             <hr style="width: 80%; background-color:#dbdbdb; height:0.2px;  border-width:0; margin: auto; text-align:center;"/>
-            <a href="{{ route('user.updates.index') }}" class="mt-2"><i class="fa fa-bell" aria-hidden="true"></i> UPDATES</a>
+            <a href="{{ route('user.bots.index') }}" class="mt-2"><i class="fa fa-exchange" aria-hidden="true"></i>  EXCHANGE</a>
             <hr style="width: 80%; background-color:#dbdbdb; height:0.2px;  border-width:0; margin: auto; text-align:center;"/>
-            <a href="{{ route('user.explorer.index') }}" class="mt-2"><i class="fa fa-search"></i> EXPLORER</a>
+            <a href="{{ route('user.referrals.index') }}" class="mt-2"><i class="fa fa-user-plus"></i> REFERRALS</a>
             <hr style="width: 80%; background-color:#dbdbdb; height:0.2px; border-width:0; margin: auto; text-align:center;"/>
-            <a href="{{ route('user.recovery.index') }}" class="mt-2"><i class="fa fa-paper-plane" aria-hidden="true"></i> SUBMIT BALANCE RECOVERY REQUEST</a>
+            <a href="{{ route('user.bots.history') }}" class="mt-2"><i class="fa fa-history" aria-hidden="true"></i> EXCHANGE HISTORY</a>
             <hr style="width: 80%; background-color:#dbdbdb; height:0.2px; border-width:0; margin: auto; text-align:center;"/>
-            <a class="mt-2 logout"><i class="fa fa-sign-out"></i> LOGOUT</a>
-            <hr style="width: 80%; background-color:#dbdbdb; height:0.2px; border-width:0;margin: auto; text-align:center;"/>
           </div>
 </div>
 </div>
@@ -166,6 +160,16 @@ style="background-image: url(&quot;/prime/images/forbanner.jpg&quot;); position:
     @yield('contents')
 
      <!-- Imported from user layouts -->
+
+     <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "350px";
+        }
+
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
 
      {{-- all script placements --}}
      <script src="/code.jquery.com/jquery-3.5.1.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>

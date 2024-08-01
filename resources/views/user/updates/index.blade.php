@@ -128,7 +128,7 @@
                                 <div class="wallet-area">
                                     <div class="" style="background-color:#ebecc0; padding:4px">
                                         <p>
-                                            You may request SEND button update and upon approval your wallet send button will be activatedand visible.
+                                            You may request SEND button update and upon approval your wallet send button will be activated and active.
                                         </p>
 <br />
                                         <p>

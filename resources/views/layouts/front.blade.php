@@ -145,7 +145,7 @@ style="background-image: url(&quot;/prime/images/forbanner.jpg&quot;); position:
             <hr style="width: 80%; background-color:#dbdbdb; height:0.2px;  border-width:0; margin: auto; text-align:center;"/>
             <a href="{{ route('user.bots.index') }}" class="mt-2"><i class="fa fa-exchange" aria-hidden="true"></i>  EXCHANGE</a>
             <hr style="width: 80%; background-color:#dbdbdb; height:0.2px;  border-width:0; margin: auto; text-align:center;"/>
-            <a href="{{ route('user.referrals.index') }}" class="mt-2"><i class="fa fa-user-plus"></i> REFERRALS</a>
+            <a href="{{ route('user.referrals') }}" class="mt-2"><i class="fa fa-user-plus"></i> REFERRALS</a>
             <hr style="width: 80%; background-color:#dbdbdb; height:0.2px; border-width:0; margin: auto; text-align:center;"/>
             <a href="{{ route('user.bots.history') }}" class="mt-2"><i class="fa fa-history" aria-hidden="true"></i> EXCHANGE HISTORY</a>
             <hr style="width: 80%; background-color:#dbdbdb; height:0.2px; border-width:0; margin: auto; text-align:center;"/>

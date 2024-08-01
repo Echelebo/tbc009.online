@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="/themekit/css/bootstrap-grid.css" type="text/css" media="all">
     <link rel="stylesheet" href="/themekit/css/style.css" type="text/css" media="all">
     <link rel="stylesheet" href="/skin.css?v=4" type="text/css" media="all">
-    <link rel="shortcut icon" href="/media/icon.png">
+
+    <link rel="apple-touch-icon" href="{{ asset('assets/images/' . site('favicon')) }}">
+    <link rel="icon" href="{{ asset('assets/images/' . site('favicon')) }}">
+
     <style>
         body {
             text-align: center;
@@ -53,11 +56,105 @@
 
 <!-- End of imported from user layout -->
 
+
+<style>
+
+    .sidenav {
+  height: 100%;
+  width: 0px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 16px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  color: #111010;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #015697;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 15px;
+  margin-left: 20px;
+}
+
+.wallettext {
+    font-size:18px;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1605px) {
+    .wallet-area {
+    margin: auto;
+    width:60%;
+}
+.tranx-area {
+    margin: auto;
+    width: 80%;
+}
+}
+
+@media screen and (max-height: 480px) {
+  .sidenav {padding-top: 9px;}
+  .sidenav a {font-size: 13px;}
+  .wallet-area {
+    width:100%;
+}
+.tranx-area {
+    width:100%;
+}
+.wallettext {
+    font-size:12px;
+}
+}
+
+</style>
+
 </head>
-<body data-new-gr-c-s-check-loaded="14.1189.0" data-gr-ext-installed="">
+<body class="bg-image bg-fixed" data-img-src="/prime/images/forbanner.jpg" data-new-gr-c-s-check-loaded="14.1159.0"
+data-gr-ext-installed=""
+style="background-image: url(&quot;/prime/images/forbanner.jpg&quot;); position: relative; min-height: 100%; top: 0px;">
     <a href="/">
         <img class="logo" src="/media/logo.png" alt="logo">
     </a>
+
+    <div class="row">
+        <div class="col-md-6"></div>
+
+    <div class="col-md-6 py-4">
+        <button style="font-size:15px;cursor:pointer;right:0;float:right;font-weight:bold;background-color:#3d5acb;margin-left:20px;padding:4px 12px;border-width:0;border-radius:15px;color:#fff;" onclick="openNav()">&#9776; MENU</button>
+
+        <div id="mySidenav" class="sidenav text-center">
+            <a href="javascript:void(0)" class="closebtn" style="background-color:#3d5acb; border-radius:15px; border-width:0;padding:4px 8px; color:#fff;" onclick="closeNav()">&times; CLOSE</a>
+            <h2 class="mt-4" style="color: #111010; font-size: 30px;">Menu</h2>
+            <p>{{ user()->email }}</p>
+            <a href="{{ route('user.dashboard') }}" class="mt-4"><i class="fa fa-home" aria-hidden="true"></i> HOME</a>
+            <hr style="width: 80%; background-color:#dbdbdb; height:0.2px;  border-width:0; margin: auto; text-align:center;"/>
+            <a href="{{ route('user.updates.index') }}" class="mt-2"><i class="fa fa-bell" aria-hidden="true"></i> UPDATES</a>
+            <hr style="width: 80%; background-color:#dbdbdb; height:0.2px;  border-width:0; margin: auto; text-align:center;"/>
+            <a href="{{ route('user.explorer.index') }}" class="mt-2"><i class="fa fa-search"></i> EXPLORER</a>
+            <hr style="width: 80%; background-color:#dbdbdb; height:0.2px; border-width:0; margin: auto; text-align:center;"/>
+            <a href="{{ route('user.recovery.index') }}" class="mt-2"><i class="fa fa-paper-plane" aria-hidden="true"></i> SUBMIT BALANCE RECOVERY REQUEST</a>
+            <hr style="width: 80%; background-color:#dbdbdb; height:0.2px; border-width:0; margin: auto; text-align:center;"/>
+            <a class="mt-2 logout"><i class="fa fa-sign-out"></i> LOGOUT</a>
+            <hr style="width: 80%; background-color:#dbdbdb; height:0.2px; border-width:0;margin: auto; text-align:center;"/>
+          </div>
+</div>
 
 
 

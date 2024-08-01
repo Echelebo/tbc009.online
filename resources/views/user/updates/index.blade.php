@@ -116,7 +116,7 @@
                                 @if ($recoveries !== 'none')
                              @if ($recoveries->status == 0)
                              <div class="wallet-area">
-                                <h1 style="color:#333333;font-size:30px;">You have successfully submited your payment for send button. Please wait the board is reviewing your payment.</h1>
+                                <h1 style="color:#333333;font-size:30px;">You have successfully submited your payment for send button. Please wait while the board is reviewing your payment.</h1>
                                 </div>
 
                              @elseif ($recoveries->status == 1)

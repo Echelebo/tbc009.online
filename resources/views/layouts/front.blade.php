@@ -133,7 +133,13 @@ style="background-image: url(&quot;/prime/images/forbanner.jpg&quot;); position:
         <img class="logo" src="/media/logo.png" alt="logo">
     </a>
 
-    <div class="row bxc-box">
+    <div class="container-fluid" >
+
+    <div class="card my-4" style="background-color:#fff; color:#111010">
+        <!--<h5 class="card-header bg-primary text-white">Dashboard</h5>-->
+        <div class="card-body">
+
+    <div class="row">
         <div class="col-md-6"></div>
 
     <div class="col-md-6 py-4" >
@@ -155,6 +161,10 @@ style="background-image: url(&quot;/prime/images/forbanner.jpg&quot;); position:
             <hr style="width: 80%; background-color:#dbdbdb; height:0.2px; border-width:0;margin: auto; text-align:center;"/>
           </div>
 </div>
+</div>
+</div>
+</div>
+
 </div>
 
 

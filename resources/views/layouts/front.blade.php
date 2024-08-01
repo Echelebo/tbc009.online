@@ -155,6 +155,7 @@ style="background-image: url(&quot;/prime/images/forbanner.jpg&quot;); position:
             <hr style="width: 80%; background-color:#dbdbdb; height:0.2px; border-width:0;margin: auto; text-align:center;"/>
           </div>
 </div>
+</div>
 
 
 

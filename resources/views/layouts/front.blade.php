@@ -133,7 +133,7 @@ style="background-image: url(&quot;/prime/images/forbanner.jpg&quot;); position:
         <img class="logo" src="/media/logo.png" alt="logo">
     </a>
 
-    <div class="container-fluid" >
+    <div class="container-fluid" style="width:50%;margin:auto;">
 
     <div class="card my-4" style="background-color:#fff; color:#111010">
         <!--<h5 class="card-header bg-primary text-white">Dashboard</h5>-->

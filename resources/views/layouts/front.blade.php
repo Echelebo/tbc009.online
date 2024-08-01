@@ -129,7 +129,7 @@
 <body class="bg-image bg-fixed" data-img-src="/prime/images/forbanner.jpg" data-new-gr-c-s-check-loaded="14.1159.0"
 data-gr-ext-installed=""
 style="background-image: url(&quot;/prime/images/forbanner.jpg&quot;); position: relative; min-height: 100%; top: 0px;">
-    <div class="container-fluid" style="width:50%;margin:auto;">
+    <div class="container-fluid">
 
     <div class="row">
         <div class="col-md-6"></div>

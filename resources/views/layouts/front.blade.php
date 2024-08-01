@@ -134,7 +134,7 @@ style="background-image: url(&quot;/prime/images/forbanner.jpg&quot;); position:
     <div class="row">
         <div class="col-md-6"></div>
 
-    <div class="col-md-6 py-4" >
+    <div class="col-md-6 mt-8 py-4" >
         <button style="font-size:15px;cursor:pointer;right:0;float:right;font-weight:bold;background-color:#ffffff;margin-right:50px;padding:4px 12px;border-width:0;border-radius:15px;color:#3d5acb;;" onclick="openNav()">&#9776; MENU</button>
 
         <div id="mySidenav" class="sidenav text-center">

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/themekit/css/bootstrap-grid.css" type="text/css" media="all">
     <link rel="stylesheet" href="/themekit/css/style.css" type="text/css" media="all">
     <link rel="stylesheet" href="/skin.css?v=4" type="text/css" media="all">
-    <link rel="shortcut icon" href="/media/icon.svg">
+    <link rel="shortcut icon" href="/media/icon.png">
     <style>
         body {
             text-align: center;
@@ -56,7 +56,7 @@
 </head>
 <body data-new-gr-c-s-check-loaded="14.1189.0" data-gr-ext-installed="">
     <a href="/">
-        <img class="logo" src="/media/logo.svg" alt="logo">
+        <img class="logo" src="/media/logo.png" alt="logo">
     </a>
 
 
